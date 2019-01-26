@@ -30,8 +30,8 @@ class Transition extends React.PureComponent {
 
     return (
       <TransitionGroup>
-        // the key is necessary here because our ReactTransition needs to know
-        when pages are entering/exiting the DOM
+        {/* the key is necessary here because our ReactTransition needs to know
+        when pages are entering/exiting the DOM */}
         <ReactTransition
           key={location.pathname}
           timeout={{ enter: timeout, exit: timeout }}
