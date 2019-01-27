@@ -22,6 +22,7 @@ Section.propTypes = {
       edges: PropTypes.array,
     }),
   }),
+  location: PropTypes.shape()
 }
 
 export const pageQuery = graphql`
