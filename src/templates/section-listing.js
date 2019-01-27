@@ -1,11 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
+import PageWrapper from '~/src/components/page-wrapper'
 
 export default class Template extends React.Component {
   render() {
     return (
-      <div>
+      <PageWrapper>
         {this.props.items.map(({ node }, index) => {
           const { frontmatter, fields } = node
           return (
@@ -14,7 +15,7 @@ export default class Template extends React.Component {
             </div>
           )
         })}
-      </div>
+      </PageWrapper>
     )
   }
 }

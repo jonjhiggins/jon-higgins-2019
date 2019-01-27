@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
+import PageWrapper from '~/src/components/page-wrapper'
 
 export default function Template({ data }) {
   const { markdownRemark } = data // data.markdownRemark holds our post data
@@ -17,7 +18,7 @@ export default function Template({ data }) {
   const videoPath =
     heroVideos && heroVideos.length ? `${mediaPath}${heroVideos[0]}` : null
   const hasMedia = videoPath !== null || (heroImages && heroImages.length > 0)
-  return <div>{title}</div>
+  return <PageWrapper>{title}</PageWrapper>
 }
 
 Template.propTypes = {

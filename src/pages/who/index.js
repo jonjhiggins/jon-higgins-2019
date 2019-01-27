@@ -7,7 +7,7 @@ import PostTemplate from '../../templates/post'
  * Page for "who"
  * @param {object} data [description]
  */
-export default function Section({ data, location }) {
+export default function Section({ data }) {
   return <PostTemplate data={data} />
 }
 
@@ -23,6 +23,5 @@ export const pageQuery = graphql`
 `
 
 Section.propTypes = {
-  data: PropTypes.shape(),
-  location: PropTypes.shape(),
+  data: PropTypes.shape()
 }

@@ -11,9 +11,8 @@ export default function Section({
   data: {
     allMarkdownRemark: { edges: items },
   },
-  location,
 }) {
-  return <SectionTemplate location={location} items={items} heading={'Words'} />
+  return <SectionTemplate items={items} heading={'Words'} />
 }
 
 Section.propTypes = {
@@ -21,8 +20,7 @@ Section.propTypes = {
     allMarkdownRemark: PropTypes.shape({
       edges: PropTypes.array,
     }),
-  }),
-  location: PropTypes.shape()
+  })
 }
 
 export const pageQuery = graphql`

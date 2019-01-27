@@ -10,13 +10,11 @@ import SectionTemplate from '../../templates/section-listing'
 export default function Section({
   data: {
     allMarkdownRemark: { edges: items },
-  },
-  location,
+  }
 }) {
   const itemsFiltered = items.filter(item => !item.node.frontmatter.archive)
   return (
     <SectionTemplate
-      location={location}
       items={itemsFiltered}
       heading={'Work'}
       footerCTA={{
@@ -33,7 +31,6 @@ Section.propTypes = {
       edges: PropTypes.array,
     }),
   }),
-  location: PropTypes.shape(),
 }
 
 export const pageQuery = graphql`

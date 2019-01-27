@@ -1,12 +1,8 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import PageWrapper from '~/src/components/page-wrapper'
 
-const ThisPage = ({ location }) => {
-  return <div>Home</div>
-}
-
-ThisPage.propTypes = {
-  location: PropTypes.object,
+const ThisPage = () => {
+  return <PageWrapper>Home</PageWrapper>
 }
 
 export default ThisPage
