@@ -1,9 +1,24 @@
 module.exports = {
   siteMetadata: {
     title: `Jon Higgins - A front-end developer in Melbourne, Australia`,
-    titleHTML: 'Jon Higgins <span>A front-end developer in Melbourne,&nbsp;Australia</span>',
+    titleHTML:
+      'Jon Higgins <span>A front-end developer in Melbourne,&nbsp;Australia</span>',
     description: `Portfolio website with articles on front-end development`,
     author: `Jon Higgins`,
+    navigationLinks: [
+      {
+        name: 'Work',
+        link: '/work',
+      },
+      {
+        name: 'Words',
+        link: '/words',
+      },
+      {
+        name: 'Who',
+        link: '/who',
+      },
+    ],
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

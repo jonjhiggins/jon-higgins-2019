@@ -12,10 +12,14 @@ import Typography from '~/src/components/typography'
 const Layout = ({ children, location }) => (
   <StaticQuery
     query={graphql`
-      query SiteTItleQuery {
+      query SiteTitleQuery {
         site {
           siteMetadata {
-            title
+            titleHTML
+            navigationLinks {
+              name
+              link
+            }
           }
         }
       }
@@ -26,7 +30,10 @@ const Layout = ({ children, location }) => (
           <html lang="en" />
         </Helmet>
         <Typography />
-        <SiteHeader siteTitle={data.site.siteMetadata.title} />
+        <SiteHeader
+          titleHTML={data.site.siteMetadata.titleHTML}
+          navigationLinks={data.site.siteMetadata.navigationLinks}
+        />
         <Transition location={location}>{children}</Transition>
       </div>
     )}

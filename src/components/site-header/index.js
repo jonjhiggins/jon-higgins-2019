@@ -153,6 +153,7 @@ class SiteHeader extends React.Component {
             <Navigation
               open={this.state.navOpen}
               handleMenuClick={this.events.handleMenuClick}
+              navigationLinks={this.props.navigationLinks}
             />
           </NavLi>
         </Grid>
@@ -163,6 +164,12 @@ class SiteHeader extends React.Component {
 
 SiteHeader.propTypes = {
   titleHTML: PropTypes.string,
+  navigationLinks: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      link: PropTypes.string,
+    })
+  ),
 }
 
 export default SiteHeader
