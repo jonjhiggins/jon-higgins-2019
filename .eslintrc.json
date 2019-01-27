@@ -1,5 +1,5 @@
 {
-  "plugins": ["react", "prettier"],
+  "plugins": ["react", "emotion", "prettier"],
   "rules": {
     "prettier/prettier": "error"
   },
