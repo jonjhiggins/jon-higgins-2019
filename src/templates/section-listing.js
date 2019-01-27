@@ -1,13 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'gatsby'
 
 export default class Template extends React.Component {
   render() {
     return (
       <div>
         {this.props.items.map(({ node }, index) => {
-          const { frontmatter } = node
-          return <div key={index}>{frontmatter.title}</div>
+          const { frontmatter, fields } = node
+          return (
+            <div key={index}>
+              <Link to={fields.slug}>{frontmatter.title}</Link>
+            </div>
+          )
         })}
       </div>
     )
@@ -30,7 +35,9 @@ export const pageQuery = graphql`
     edges {
       node {
         id
-        fileAbsolutePath
+        fields {
+          slug
+        }
         frontmatter {
           date(formatString: "DD MMMM YYYY")
           title
