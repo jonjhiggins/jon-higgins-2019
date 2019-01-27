@@ -37,5 +37,8 @@ export default function PageWrapper({ children, heading }) {
 
 PageWrapper.propTypes = {
   heading: PropTypes.string,
-  children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+  children: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.arrayOf(PropTypes.node),
+  ]),
 }
