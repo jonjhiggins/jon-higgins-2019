@@ -22,6 +22,4 @@ npm run build
 
 ## Deploy
 
-```sh
-npm run deploy
-```
+Auto-deploys when pushing to `master` via Netlify to [https://jon-higgins-2019.netlify.com](https://jon-higgins-2019.netlify.com)

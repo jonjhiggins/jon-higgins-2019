@@ -33,7 +33,7 @@ const VOLLKORN_STYLES = [
 // so need to be set manually.
 const INTER_UI_STYLES = [
   {
-    fontSizeRaw: 11,
+    fontSizeRaw: 12, // should be 11 but bringing up to be more legible
     lineHeightRaw: BASELINE * 1,
     letterSpacing: `${50 / 1000}em`, // 50% tracking = 0.05em
     textTransform: 'uppercase',
