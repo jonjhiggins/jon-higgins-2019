@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import { css, ClassNames, Global } from '@emotion/core'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 
@@ -13,9 +14,45 @@ import COLOURS from '~/src/settings/colours'
 import Z_INDEX from '~/src/settings/z-index'
 import ANIMATION from '~/src/settings/animation'
 
-const activeNavLink = {
-  fontWeight: 'bold',
-}
+const linkStyles = css`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  width: 100%;
+  color: inherit;
+  text-decoration: none;
+  box-sizing: border-box;
+
+  ${BREAKPOINTS.S_MAX} {
+    justify-content: center;
+  }
+
+  > h3 {
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      border-bottom: ${rem(2)} solid ${COLOURS.PRIMARY};
+      transform: scaleX(0);
+      transition: 100ms transform ${ANIMATION.EASING_OUT};
+      transform-origin: 0 0;
+    }
+  }
+
+  &:hover,
+  &.active {
+    > h3 {
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+  }
+`
 
 const NavigationWrapper = styled('nav')(
   {
@@ -54,17 +91,6 @@ const NavigationWrapper = styled('nav')(
       [BREAKPOINTS.M_MIN]: {
         marginBottom: 0,
       },
-
-      '& a': {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'flex-start',
-        height: '100%',
-        width: '100%',
-        color: 'inherit',
-        textDecoration: 'none',
-        boxSizing: 'border-box',
-      },
     },
   },
   props => ({
@@ -77,6 +103,12 @@ const NavigationWrapper = styled('nav')(
   })
 )
 
+/* Make link active when any page in a section is the current
+ page (e.g. highlight "work" on "/work/land-rover-interactive-stories") */
+const partlyActive = className => ({ isPartiallyCurrent }) => ({
+  className: className + (isPartiallyCurrent ? ` active` : ``),
+})
+
 class Navigation extends React.Component {
   render() {
     return (
@@ -84,15 +116,23 @@ class Navigation extends React.Component {
         <Grid element={'ul'} cols={3}>
           {this.props.navigationLinks.map(({ name, link }, index) => (
             <li key={index}>
-              <Link
-                to={link}
-                onClick={this.props.handleMenuClick}
-                activeStyle={activeNavLink}
-              >
-                <Heading element={'h3'} size={1} light={true}>
-                  {name}
-                </Heading>
-              </Link>
+              {/* Have to wrap in ClassNames otherwise style won't be injected
+              as emotion doesn't have an element to tie it to */}
+              <ClassNames>
+                {({ css, cx }) => (
+                  <Link
+                    to={link}
+                    onClick={this.props.handleMenuClick}
+                    // polyfill for matching active when on child routes
+                    // https://github.com/gatsbyjs/gatsby/issues/7208
+                    getProps={partlyActive(css(linkStyles))}
+                  >
+                    <Heading element={'h3'} sizeS={3} sizeM={1} light={true}>
+                      {name}
+                    </Heading>
+                  </Link>
+                )}
+              </ClassNames>
             </li>
           ))}
         </Grid>
