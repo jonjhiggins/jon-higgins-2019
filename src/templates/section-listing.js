@@ -6,6 +6,7 @@ import { graphql, navigate } from 'gatsby'
 import hexRgb from 'hex-rgb'
 
 import PageWrapper from '~/src/components/page-wrapper'
+import SEO from '~/src/components/seo'
 import HeadingBackground from '~/src/components/heading-background'
 import ArticleWrapper from '~/src/components/article-wrapper'
 import Article from '~/src/components/article'
@@ -149,6 +150,7 @@ export default class Template extends React.Component {
   render() {
     return (
       <PageWrapper>
+        <SEO title={this.props.heading} />
         <HeadingBackground>{this.props.heading}</HeadingBackground>
         <ArticleWrapper>
           <Article border={false} ref="article">

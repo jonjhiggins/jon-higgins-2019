@@ -9,9 +9,10 @@ import ArticleHeaderMedia from '~/src/components/article-header-media'
 import BodyText from '~/src/components/body-text'
 import HeadingBackground from '~/src/components/heading-background'
 import Heading from '~/src/components/heading'
+import SEO from '~/src/components/seo'
 import COLOURS from '~/src/settings/colours'
 
-export default function Template({ data }) {
+export default function Template({ data, pageTitle }) {
   const { markdownRemark } = data // data.markdownRemark holds our post data
   const { frontmatter, html } = markdownRemark
   const {
@@ -28,6 +29,7 @@ export default function Template({ data }) {
   const hasMedia = videoPath !== null || (heroImages && heroImages.length > 0)
   return (
     <PageWrapper>
+      <SEO title={pageTitle || title} />
       <HeadingBackground>{title}</HeadingBackground>
       <ArticleWrapper>
         <Article hasMedia={hasMedia}>
