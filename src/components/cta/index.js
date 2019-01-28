@@ -27,7 +27,7 @@ const cssCTA = css`
 `
 
 export default ({ to, children, back }) => (
-  <Link className={`${fontStyle} ${cssCTA}`} to={to}>
+  <Link css={[fontStyle, cssCTA]} to={to}>
     {children}
   </Link>
 )
