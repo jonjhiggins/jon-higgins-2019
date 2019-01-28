@@ -1,6 +1,6 @@
 import { Link } from 'gatsby'
 import React from 'react'
-import { css } from '@emotion/core'
+import { css, ClassNames } from '@emotion/core'
 
 import COLOURS from '~/src/settings/colours'
 import { BASELINE, interUIStyles } from '~/src/settings/typography'
@@ -27,7 +27,11 @@ const cssCTA = css`
 `
 
 export default ({ to, children, back }) => (
-  <Link css={[fontStyle, cssCTA]} to={to}>
-    {children}
-  </Link>
+  <ClassNames>
+    {({ css, cx }) => (
+      <Link className={css([fontStyle, cssCTA])} to={to}>
+        {children}
+      </Link>
+    )}
+  </ClassNames>
 )
