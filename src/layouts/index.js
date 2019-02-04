@@ -33,6 +33,7 @@ const Wrapper = styled('div')`
   display: flex;
   min-height: 100%;
   flex-direction: column;
+  position: relative;
 `
 
 // Note that we need to pass location to our functional component

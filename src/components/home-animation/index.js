@@ -2,11 +2,12 @@ import styled from '@emotion/styled'
 import React from 'react'
 import anime from 'animejs'
 
-import { GRID_GUTTER_REM } from '~/src/settings/grid'
+import { GRID_GUTTER, GRID_GUTTER_REM } from '~/src/settings/grid'
 import { BASELINE_REM } from '~/src/settings/typography'
 import { rem } from '~/src/utils'
 import COLOURS from '~/src/settings/colours'
-import { BREAKPOINTS, BREAKPOINT_STRINGS } from '~/src/settings/breakpoints'
+import { BREAKPOINTS } from '~/src/settings/breakpoints'
+import { MAX_WIDTH } from '~/src/settings/max-width'
 import ANIMATION from '~/src/settings/animation'
 import Heading from '~/src/components/heading'
 
@@ -37,8 +38,20 @@ const getCubeRotation = visibleSide => `rotateX(-${visibleSide * 90}deg)`
 
 const HomeAnimationWrapper = styled('div')`
   display: flex;
-  min-height: 40vh;
+  position: absolute;
+  top: 0;
+  height: 100vh;
   align-items: center;
+  z-index: -1;
+  pointer-events: none;
+
+  left: ${GRID_GUTTER_REM.S};
+  right: ${GRID_GUTTER_REM.S};
+
+  ${BREAKPOINTS.M_MIN} {
+    left: ${GRID_GUTTER_REM.M};
+    right: ${GRID_GUTTER_REM.M};
+  }
 
   & ul {
     list-style: none;
@@ -102,7 +115,7 @@ const CubeFace = styled('li')`
 `
 
 const DURATIONS = {
-  wait: 300,
+  wait: 500,
   forward: 400,
   spin: 800,
   backwards: 400,
