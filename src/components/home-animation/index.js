@@ -113,16 +113,10 @@ const WORDS = {
   sections: ['writes', 'builds', 'learns'],
   codeDescription: ['clean', 'concise'],
   codeItems: ['code'],
-  buildDescription: [
-    'performant',
-    'accsesible',
-    'inclusive',
-    'engaging',
-    'useful',
-  ],
-  buildItems: ['products', 'websites', 'experiences', 'things', 'webapps'],
+  buildDescription: ['performant', 'accsesible', 'inclusive', 'engaging'],
+  buildItems: ['products', 'websites', 'experiences', 'webapps'],
   learnDescription: ['new', 'emerging', 'useful'],
-  learnItems: ['things', 'technologies', 'skills'],
+  learnItems: ['things', 'technologies', 'skills', 'processes'],
 }
 
 export default class HomeAnimation extends React.Component {
@@ -273,7 +267,6 @@ export default class HomeAnimation extends React.Component {
     })
   }
   componentDidMount() {
-    const targets = {}
     // Fade in text animation
     const fadeInText = [
       {
