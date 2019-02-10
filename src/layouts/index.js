@@ -11,6 +11,7 @@ import { MAX_WIDTH_REM } from '~/src/settings/max-width'
 import { BASELINE } from '~/src/settings/typography'
 import COLOURS from '~/src/settings/colours'
 import { rem } from '~/src/utils'
+import favicon from '~/src/images/favicon.png'
 
 // Polyfills
 // @TODO - do dynamic import
@@ -60,7 +61,12 @@ const Layout = ({ children, location }) => {
       `}
       render={data => (
         <Wrapper>
-          <Helmet title={data.site.siteMetadata.title}>
+          <Helmet
+            title={data.site.siteMetadata.title}
+            link={[
+              { rel: 'shortcut icon', type: 'image/png', href: `${favicon}` },
+            ]}
+          >
             <html lang="en" />
             {/* <link rel="preload" href={interUI} as="font" type="font/woff2" />
           <link rel="preload" href={interUIBold} as="font" type="font/woff2" />
