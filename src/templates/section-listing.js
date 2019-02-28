@@ -13,6 +13,7 @@ import Article from '~/src/components/article'
 import ArticleContent from '~/src/components/article-content'
 import CTA from '~/src/components/cta'
 import Heading from '~/src/components/heading'
+import BodyText from '~/src/components/body-text'
 import { BASELINE } from '~/src/settings/typography'
 import COLOURS from '~/src/settings/colours'
 import { rem } from '~/src/utils'
@@ -111,12 +112,19 @@ class LinkBlock extends React.Component {
         transitioning={this.state.transitioning}
       >
         <a href={this.props.link} onClick={this.handleClickBound}>
-          <Heading element={'time'} size={1} colour={COLOURS.GREY_GREEN}>
+          <Heading
+            element={'time'}
+            size={1}
+            marginBottomS={0.25}
+            marginBottomM={0.5}
+            colour={COLOURS.GREY_GREEN}
+          >
             {this.props.frontmatter.date}
           </Heading>
-          <Heading element={'h3'} size={2}>
+          <Heading element={'h3'} sizeS={2} sizeM={3}  marginBottomS={0.75} marginBottomM={1}>
             {this.props.frontmatter.title}
           </Heading>
+          <BodyText>{this.props.frontmatter.description}</BodyText>
         </a>
         {this.state.transitioning && (
           <TransitionBlock
@@ -216,6 +224,7 @@ export const pageQuery = graphql`
         frontmatter {
           date(formatString: "DD MMMM YYYY")
           title
+          description
           archive
         }
       }

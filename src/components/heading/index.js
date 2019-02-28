@@ -41,6 +41,7 @@ const Heading = ({
     position: 'relative',
     fontWeight: light ? 'normal' : null,
     textTransform: uppercase || null,
+    display: 'block',
     '& > span': {
       fontWeight: 'normal',
     },
