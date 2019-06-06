@@ -1,5 +1,5 @@
 ---
-title: Hi, I'm a front-end developer based in Melbourne, Australia.
+title: Hi, I'm a front-end developer based in Bristol, UK.
 ---
 
 ### Contact me
@@ -8,7 +8,6 @@ You can get hold of me via [email](mailto:jon@jonhiggins.co.uk), [Twitter](https
 
 ### Personal
 
-- Injuries-permitting, I enjoy [running](https://www.strava.com/athletes/13456097), cycling to work and failing to swim with proper techique.
+- Injuries-permitting, I enjoy [running](https://www.strava.com/athletes/13456097), cycling and the occasional swim.
 - I bloody love [music](http://www.last.fm/user/jhig_uk).
-- Also keen on [travelling](https://www.instagram.com/jonjhiggins/), camping, mooching about and general exploring.
-- My spirit animals are [bears](https://placebear.com/) and [highland cows](https://www.facebook.com/pages/category/Pet/Buckley-the-Highland-Cow-419363498434353/)
+- Also keen on [travelling](https://www.instagram.com/jonjhiggins/), camping and general exploring of places.

@@ -1,8 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `Jon Higgins - A front-end developer in Melbourne, Australia`,
+    siteUrl: 'https://jonhiggins.co.uk',
+    title: `Jon Higgins - A front-end developer in Bristol, UK`,
     titleHTML:
-      'Jon Higgins <span>A front-end developer in Melbourne,&nbsp;Australia</span>',
+      'Jon Higgins <span>A front-end developer in Bristol,&nbsp;UK</span>',
     description: `Portfolio website with articles on front-end development`,
     author: `Jon Higgins`,
     navigationLinks: [
@@ -55,6 +56,7 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
+          'gatsby-plugin-sitemap',
           {
             resolve: `gatsby-remark-images`,
             options: {
