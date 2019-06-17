@@ -5,8 +5,8 @@
   "version": "0.1.0",
   "author": "Jon Higgins <jon@jonhiggins.co.uk>",
   "dependencies": {
-    "@emotion/core": "^10.0.6",
-    "@emotion/styled": "^10.0.6",
+    "@emotion/core": "^10.0.10",
+    "@emotion/styled": "^10.0.12",
     "animejs": "^3.0.1",
     "gatsby": "^2.0.76",
     "gatsby-image": "^2.0.20",
