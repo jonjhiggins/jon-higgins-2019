@@ -2,12 +2,11 @@ import styled from '@emotion/styled'
 import React from 'react'
 import anime from 'animejs'
 
-import { GRID_GUTTER, GRID_GUTTER_REM } from '~/src/settings/grid'
+import { GRID_GUTTER_REM } from '~/src/settings/grid'
 import { BASELINE_REM } from '~/src/settings/typography'
 import { rem } from '~/src/utils'
 import COLOURS from '~/src/settings/colours'
 import { BREAKPOINTS } from '~/src/settings/breakpoints'
-import { MAX_WIDTH } from '~/src/settings/max-width'
 import ANIMATION from '~/src/settings/animation'
 import Heading from '~/src/components/heading'
 
@@ -295,9 +294,6 @@ export default class HomeAnimation extends React.Component {
 
     // Main cube rotation animation
     this.state.blocks[0].blockItems.forEach((blockItem, blockItemIndex) => {
-      if (blockItemIndex === 0) {
-        return
-      }
       this.state.blocks.forEach((block, blockIndex) => {
         const timelineItems = this.makeTimelineItems(blockItemIndex, blockIndex)
         this.pushToTimeline(timelineItems, blockIndex)
