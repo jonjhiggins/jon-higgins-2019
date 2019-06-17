@@ -87,12 +87,10 @@ const INTER_UI_STYLES = [
 const defaultStyle = {
   interUI: {
     fontFamily: '"Inter UI", Helvetica, Arial, sans-serif',
-    position: 'relative',
     letterSpacing: `-${10 / 1000}em`, // -10% tracking = 0.01em
   },
   vollkorn: {
     fontFamily: 'Vollkorn, Georgia, serif',
-    position: 'relative',
   },
 }
 

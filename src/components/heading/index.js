@@ -38,7 +38,6 @@ const Heading = ({
     color: colour || null,
     marginTop: rem(marginTop * BASELINE),
     marginBottom: rem((marginBottomS || marginBottom) * BASELINE),
-    position: 'relative',
     fontWeight: light ? 'normal' : null,
     textTransform: uppercase || null,
     display: 'block',
