@@ -23,7 +23,7 @@ First we need a S3 bucket that will serve our static site and an AWS user so Bit
 
 As neither Yarn or AWS CLI are pre-installed in our Bitbucket Pipeline environment we will need to install them in our Pipeline script. AWS CLI needs credentials for the users we created earlier in order to push to S3, so we will add these as [Bitbucket environment variables](https://confluence.atlassian.com/bitbucket/environment-variables-794502608.html)
 
-1.  Add your new AWS user's credentials as environment variables to Bitbucket. Viewing your repository on bitbucket.org, go to Settings > Environment variables. Add variables named "AWS_ACCESS_KEY_ID" and "AWS_SECRET_ACCESS_KEY" with values from your AWS user you already set up (values are called "Access key ID" and "Secret access key" in AWS). Make sure "AWS_SECRET_ACCESS_KEY" is set to "Secured" using the checkbox on the right, this prevents it being output in logs.
+1.  Add your new AWS user's credentials as environment variables to Bitbucket. Viewing your repository on bitbucket.org, go to Settings > Environment variables. Add variables named `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` with values from your AWS user you already set up (values are called "Access key ID" and "Secret access key" in AWS). Make sure `AWS_SECRET_ACCESS_KEY` is set to "Secured" using the checkbox on the right, this prevents it being output in logs.
 2.  Create a `bitbucket-pipelines.yml` file in the root of your folder. Below is an example Pipelines config. If you use this config, you will need to:
 
 * adjust the Yarn task for building your site (`yarn stage`)
