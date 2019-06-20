@@ -7,6 +7,7 @@ date: 2019-02-01
 heroImages:
   - 
     image: honda-australia-aem-6-4.jpg
+    alt: Honda Cars website
 content_url: http://honda.com.au/cars
 description: For 1.5 years I lead the front-end development on the Honda Australia Cars website whilst working at Leo Burnett Melbourne.
 archive: false

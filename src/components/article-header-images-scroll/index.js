@@ -63,7 +63,10 @@ export default function ArticleHeaderImagesScroll({ heroImages, mediaPath }) {
       {heroImages.map((img, index) => (
         <Figure key={index}>
           <ImgHolder delay={index !== 0}>
-            <img src={require(`../../${mediaPath}${img.image}`)} alt="" />
+            <img
+              src={require(`../../${mediaPath}${img.image}`)}
+              alt={img.alt}
+            />
           </ImgHolder>
           <Heading element={'figcaption'} size={1}>
             {img.caption}
@@ -80,6 +83,7 @@ ArticleHeaderImagesScroll.propTypes = {
     PropTypes.shape({
       image: PropTypes.string,
       caption: PropTypes.string,
+      alt: PropTypes.string,
     })
   ),
 }

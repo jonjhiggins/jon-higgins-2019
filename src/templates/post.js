@@ -85,6 +85,7 @@ export const pageQuery = graphql`
         heroImages {
           image
           caption
+          alt
         }
         images
         category

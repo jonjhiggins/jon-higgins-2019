@@ -32,7 +32,7 @@ export default function ArticleHeaderImages({ heroImages, mediaPath }) {
     <HeroImages>
       {heroImages.map((img, index) => (
         <Figure key={index}>
-          <img src={require(`../../${mediaPath}${img.image}`)} alt="" />
+          <img src={require(`../../${mediaPath}${img.image}`)} alt={img.alt} />
           {img.caption && (
             <Heading element={'figcaption'} size={1}>
               {img.caption}
@@ -50,6 +50,7 @@ ArticleHeaderImages.propTypes = {
     PropTypes.shape({
       image: PropTypes.string,
       caption: PropTypes.string,
+      alt: PropTypes.alt,
     })
   ),
 }
