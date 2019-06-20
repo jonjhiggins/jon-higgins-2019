@@ -7,7 +7,7 @@ date: 2013-08-01
 type: web
 skills: [design, build]
 images: [article-image.jpg]
-content_url: http://www.instiller.co.uk
+contentUrl: http://www.instiller.co.uk
 description: Communicate and demonstrate that this email marketing solution is the choice for digital agencies.
 archive: true
 ---

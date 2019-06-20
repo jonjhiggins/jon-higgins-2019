@@ -1,8 +1,7 @@
 ---
 layout: work-item
 category: work
-title: Honda Australia AEM 6.4 site rebuild
-class: honda-australia-aem-6-4
+title: Typography test
 date: 2019-02-01
 heroImages:
   - 

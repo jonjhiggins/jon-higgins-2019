@@ -7,6 +7,7 @@ import Article from '~/src/components/article'
 import ArticleContent from '~/src/components/article-content'
 import ArticleHeaderMedia from '~/src/components/article-header-media'
 import BodyText from '~/src/components/body-text'
+import CTA from '~/src/components/cta'
 import HeadingBackground from '~/src/components/heading-background'
 import Heading from '~/src/components/heading'
 import SEO from '~/src/components/seo'
@@ -22,6 +23,7 @@ export default function Template({ data, pageTitle }) {
     heroVideos,
     category,
     heroImages,
+    contentUrl,
   } = frontmatter
   const mediaPath = `data/${category}/images/`
   const videoPath =
@@ -62,6 +64,11 @@ export default function Template({ data, pageTitle }) {
               </Heading>
             )}
             <BodyText dangerouslySetInnerHTML={{ __html: html }} />
+            {contentUrl && (
+              <span>
+                <CTA href={contentUrl}>View work</CTA>
+              </span>
+            )}
           </ArticleContent>
         </Article>
       </ArticleWrapper>
@@ -70,6 +77,7 @@ export default function Template({ data, pageTitle }) {
 }
 
 Template.propTypes = {
+  pageTitle: PropTypes.string,
   data: PropTypes.object,
 }
 
@@ -89,6 +97,7 @@ export const pageQuery = graphql`
         }
         images
         category
+        contentUrl
       }
     }
   }

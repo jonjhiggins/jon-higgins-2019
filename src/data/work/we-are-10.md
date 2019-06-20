@@ -7,7 +7,7 @@ date: 2014-05-10
 type: web
 skills: [brand, plan, design, build]
 images: [article-image.jpg]
-content_url: http://weare10.neteffekt.com
+contentUrl: http://weare10.neteffekt.com
 description: Utilise Givey API and Assemble to generate donations and buzz for charity project
 archive: true
 ---

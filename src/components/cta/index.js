@@ -1,5 +1,6 @@
 import { Link } from 'gatsby'
 import React from 'react'
+import PropTypes from 'prop-types'
 import { css, ClassNames } from '@emotion/core'
 
 import COLOURS from '~/src/settings/colours'
@@ -26,12 +27,27 @@ const cssCTA = css`
   }
 `
 
-export default ({ to, children, back }) => (
-  <ClassNames>
-    {({ css, cx }) => (
-      <Link className={css([fontStyle, cssCTA])} to={to}>
-        {children}
-      </Link>
-    )}
-  </ClassNames>
-)
+export default function CTA({ to, children, back, href }) {
+  return (
+    <ClassNames>
+      {({ css, cx }) => {
+        return to ? (
+          <Link className={css([fontStyle, cssCTA])} to={to}>
+            {children}
+          </Link>
+        ) : (
+          <a href={href} className={css([fontStyle, cssCTA])}>
+            {children}
+          </a>
+        )
+      }}
+    </ClassNames>
+  )
+}
+
+CTA.propTypes = {
+  to: PropTypes.string,
+  href: PropTypes.string,
+  back: PropTypes.bool,
+  children: PropTypes.string,
+}

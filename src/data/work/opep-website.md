@@ -6,7 +6,7 @@ class: opep-website
 date: 2013-07-01
 type: web
 skills: [plan, design, build]
-content_url: http://www.opep.co.uk
+contentUrl: http://www.opep.co.uk
 images: [article-image.jpg]
 description: Create new resource-sharing website for PE organisation aiming for outstanding lessons.
 archive: true

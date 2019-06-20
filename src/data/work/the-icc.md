@@ -7,7 +7,7 @@ date: 2014-05-01
 type: web
 skills: [build]
 images: [article-image.jpg]
-content_url: http://www.theicc.co.uk
+contentUrl: http://www.theicc.co.uk
 description: I was lead frontend dev on the build of a new responsive site for one of Europe's most high profile conference centres.
 archive: true
 ---

@@ -8,7 +8,7 @@ type: web
 skills: [build]
 images: [work-hero--land-rover-interactive-story@2x.jpg]
 heroVideos: [interactive-story-video-short]
-content_url: http://www.landrover.co.uk/above-and-beyond/featured-articles/index.html
+contentUrl: http://www.landrover.co.uk/above-and-beyond/featured-articles/index.html
 description: Provide immersive, magazine-style articles for global premium brand.
 archive: false
 ---

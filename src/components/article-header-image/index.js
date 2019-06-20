@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
-import { keyframes } from '@emotion/core'
 
 import Heading from '~/src/components/heading'
 import COLOURS from '~/src/settings/colours'

@@ -6,7 +6,7 @@ class: opep-brand
 date: 2013-05-01
 type: brand
 skills: [brand, design]
-content_url: http://www.opep.co.uk
+contentUrl: http://www.opep.co.uk
 images: [article-image.jpg]
 description: Create brand for teacher collective aiming for outstanding PE
 archive: true
