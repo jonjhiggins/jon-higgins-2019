@@ -12,7 +12,7 @@ const fontStyle = css({ ...interUIStyles[0] })
 const cssCTA = css`
   border: ${rem(2)} solid ${COLOURS.PRIMARY};
   text-decoration: none;
-  color: ${COLOURS.BLACK};
+  color: ${COLOURS.GREY_1};
   border-radius: ${rem(3)};
   text-align: center;
   padding: ${rem((BASELINE / 4) * 3 - 2)} ${rem(BASELINE * 2 - 2)}; /* take 2px border in to account */

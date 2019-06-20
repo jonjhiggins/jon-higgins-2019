@@ -20,7 +20,7 @@ import Z_INDEX from '~/src/settings/z-index'
 const Header = styled('header')`
   padding: ${rem(BASELINE * 1)} ${GRID_GUTTER_REM.S} ${rem(BASELINE / 2)};
   margin-bottom: ${rem(BASELINE * 2)};
-  border-bottom: ${rem(1)} solid ${COLOURS.GREY};
+  border-bottom: ${rem(1)} solid ${COLOURS.GREY_BORDER};
 
   ${BREAKPOINTS.M_MIN} {
     padding: ${rem(BASELINE * 3)} ${GRID_GUTTER_REM.M} ${rem(BASELINE)};
@@ -46,7 +46,7 @@ const Description = styled('div')`
     & span {
       display: block;
       text-transform: none;
-      opacity: 0.5;
+      color: ${COLOURS.GREY_2};
     }
   }
 `
@@ -76,8 +76,7 @@ const BurgerIcons = styled('span')`
   span {
     width: 100%;
     height: ${rem(2)};
-    background-color: ${COLOURS.BLACK};
-    opacity: 0.3;
+    background-color: ${COLOURS.GREY_3};
     position: absolute;
     left: 0;
   }

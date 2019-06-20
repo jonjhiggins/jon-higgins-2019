@@ -36,7 +36,7 @@ const LinkBlockInner = styled('li')`
   opacity: ${props => (props.visible || props.transitioning ? 1 : 0)};
   transition: opacity 400ms ease-out;
   & > a {
-    color: ${COLOURS.BLACK};
+    color: ${COLOURS.GREY_1};
     text-decoration: none;
     padding: ${rem(BASELINE)};
     display: block;
@@ -117,7 +117,7 @@ class LinkBlock extends React.Component {
             size={1}
             marginBottomS={0.25}
             marginBottomM={0.5}
-            colour={COLOURS.GREY_GREEN}
+            colour={COLOURS.HIGHLIGHT}
           >
             {this.props.frontmatter.date}
           </Heading>

@@ -6,6 +6,7 @@ import vollkorn from '~/src/fonts/vollkorn.woff2'
 import vollkornBold from '~/src/fonts/vollkorn-bold.woff2'
 
 import { vollkornStyles, BODY_FONT_SIZE } from '~/src/settings/typography'
+import COLOURS from '~/src/settings/colours'
 
 const globalStyles = css`
   @font-face {
@@ -52,6 +53,7 @@ const globalStyles = css`
   }
 
   body {
+    color: ${COLOURS.BODY_TEXT};
     margin: 0;
     ${vollkornStyles[0]};
     height: 100%;

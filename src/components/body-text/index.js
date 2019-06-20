@@ -45,7 +45,7 @@ const BodyText = styled('div')({
   },
   'h2, h3': {
     ...interUIStyles[1],
-    color: COLOURS.GREY_GREEN,
+    color: COLOURS.HIGHLIGHT,
     [BREAKPOINTS.M_MIN]: {
       ...interUIStyles[2],
     },

@@ -47,7 +47,7 @@ export default function Template({ data, pageTitle }) {
               <Heading
                 element={'time'}
                 marginBottom={2}
-                colour={COLOURS.GREY_GREEN}
+                colour={COLOURS.HIGHLIGHT}
               >
                 {date}
               </Heading>
