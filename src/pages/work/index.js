@@ -10,7 +10,7 @@ import SectionTemplate from '../../templates/section-listing'
 export default function Section({
   data: {
     allMarkdownRemark: { edges: items },
-  }
+  },
 }) {
   const itemsFiltered = items.filter(item => !item.node.frontmatter.archive)
   return (
@@ -36,7 +36,7 @@ Section.propTypes = {
 export const pageQuery = graphql`
   query GetWorkPosts {
     allMarkdownRemark(
-      filter: { frontmatter: { category: { eq: "work" } } }
+      filter: { frontmatter: { category: { eq: "work" }, hide: { ne: true } } }
       sort: { order: DESC, fields: [frontmatter___date] }
     ) {
       ...GetSectionPosts
