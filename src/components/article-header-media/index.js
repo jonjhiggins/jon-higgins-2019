@@ -1,13 +1,16 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
-import { keyframes } from '@emotion/core'
 
-import Heading from '~/src/components/heading'
+import ArticleHeaderImagesScroll from '~/src/components/article-header-images-scroll'
+import ArticleHeaderImage from '~/src/components/article-header-image'
 import COLOURS from '~/src/settings/colours'
 import { BASELINE } from '~/src/settings/typography'
 import { BREAKPOINTS } from '~/src/settings/breakpoints'
 import { GRID_GUTTER } from '~/src/settings/grid'
 import { rem } from '~/src/utils'
+import { HERO_IMAGE_SHADOW } from '~/src/settings/shadows'
+
 
 const ArticleHeaderMediaWrapper = styled('div')`
   background-color: ${COLOURS.PRIMARY};
@@ -24,50 +27,7 @@ const ArticleHeaderMediaWrapper = styled('div')`
     max-width: 100%;
     display: block;
     grid-column: article-full;
-    box-shadow: 0 ${rem(BASELINE * 2)} ${rem(BASELINE * 3)} ${COLOURS.SHADOW};
-  }
-`
-
-const HeroImages = styled('div')`
-  display: flex;
-  &,
-  div > & {
-    grid-column: article-full;
-  }
-`
-
-const Figure = styled('figure')`
-  margin: 0;
-  flex-basis: 50%;
-  text-align: center;
-`
-
-const a = keyframes`
-50% {
-    transform: translateY(-33.3%);
-}
-75% {
-    transform: translateY(0);
-}
-75.6% {
-    transform: translateY(0);
-}
-`
-
-const ImgHolder = styled('span')`
-  position: relative;
-  padding-top: 168.75%;
-  overflow: hidden;
-  display: block;
-
-  img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    max-width: none;
-    width: 100%;
-    animation: ${a} 12s 3s infinite;
-    animation-delay: ${props => (props.delay ? '4s' : null)};
+    box-shadow: ${HERO_IMAGE_SHADOW};
   }
 `
 
@@ -86,18 +46,28 @@ export default function ArticleHeaderMedia({
           poster={require(`../../${videoPath}.jpg`)}
         />
       )}
-      {!videoPath && heroImages && (
-        <HeroImages>
-          {heroImages.map((img, index) => (
-            <Figure key={index}>
-              <ImgHolder delay={index !== 0}>
-                <img src={require(`../../${mediaPath}${img.image}`)} alt="" />
-              </ImgHolder>
-              <Heading element={'figcaption'}>{img.caption}</Heading>
-            </Figure>
-          ))}
-        </HeroImages>
+      {/* Single image hero */}
+      {!videoPath && heroImages.length === 1 && (
+        <ArticleHeaderImage heroImages={heroImages} mediaPath={mediaPath} />
+      )}
+      {/* Double scrolling images hero */}
+      {!videoPath && heroImages.length > 1 && (
+        <ArticleHeaderImagesScroll
+          heroImages={heroImages}
+          mediaPath={mediaPath}
+        />
       )}
     </ArticleHeaderMediaWrapper>
   )
+}
+
+ArticleHeaderMedia.propTypes = {
+  videoPath: PropTypes.string,
+  mediaPath: PropTypes.string,
+  heroImages: PropTypes.arrayOf(
+    PropTypes.shape({
+      image: PropTypes.string,
+      caption: PropTypes.string,
+    })
+  ),
 }
