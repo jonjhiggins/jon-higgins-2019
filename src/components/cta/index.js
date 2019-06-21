@@ -7,7 +7,7 @@ import COLOURS from '~/src/settings/colours'
 import { BASELINE, interUIStyles } from '~/src/settings/typography'
 import { rem } from '~/src/utils'
 
-const fontStyle = css({ ...interUIStyles[0] })
+const fontStyle = css({ ...interUIStyles[1] })
 
 const cssCTA = css`
   border: ${rem(2)} solid ${COLOURS.PRIMARY};

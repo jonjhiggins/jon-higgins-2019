@@ -4,17 +4,12 @@ import styled from '@emotion/styled'
 
 import { rem } from '~/src/utils'
 import { BREAKPOINTS } from '~/src/settings/breakpoints'
-import {
-  interUIStyles,
-  vollkornStyles,
-  BASELINE,
-} from '~/src/settings/typography'
+import { interUIStyles, BASELINE } from '~/src/settings/typography'
 
 const Heading = ({
   element,
   children,
   size = 1,
-  type = 'INTER_UI',
   marginTop = 0,
   marginBottom = 0,
   marginBottomS,
@@ -26,20 +21,19 @@ const Heading = ({
   colour,
   uppercase,
 }) => {
-  const sizeIndex = size - 1
-  const sizeSIndex = typeof sizeS !== 'undefined' ? sizeS - 1 : null
-  const sizeMIndex = typeof sizeM !== 'undefined' ? sizeM - 1 : null
+  const sizeIndex = size
+  const sizeSIndex = typeof sizeS !== 'undefined' ? sizeS : null
+  const sizeMIndex = typeof sizeM !== 'undefined' ? sizeM : null
 
   const mainIndex = sizeSIndex !== null ? sizeSIndex : sizeIndex
 
-  const mainStyles =
-    type === 'INTER_UI' ? interUIStyles[mainIndex] : vollkornStyles[mainIndex]
+  const mainStyles = interUIStyles[mainIndex]
   const headingStyles = {
-    color: colour || null,
+    color: colour || mainStyles['color'],
     marginTop: rem(marginTop * BASELINE),
     marginBottom: rem((marginBottomS || marginBottom) * BASELINE),
-    fontWeight: light ? 'normal' : null,
-    textTransform: uppercase || null,
+    fontWeight: light ? 'normal' : mainStyles['fontWeight'],
+    textTransform: uppercase || mainStyles['textTransform'],
     display: 'block',
     '& > span': {
       fontWeight: 'normal',
@@ -59,10 +53,7 @@ const Heading = ({
 
   // Set large breakpoint if size defined
   if (sizeMIndex >= 0) {
-    const largeStyles =
-      type === 'INTER_UI'
-        ? interUIStyles[sizeMIndex]
-        : vollkornStyles[sizeMIndex]
+    const largeStyles = interUIStyles[sizeMIndex]
     const largeStylesMerged = Object.assign({}, largeStyles, headingStyles)
     combinedStyles = {
       ...combinedStyles,
@@ -84,7 +75,6 @@ Heading.propTypes = {
   size: PropTypes.number,
   sizeS: PropTypes.number,
   sizeM: PropTypes.number,
-  type: PropTypes.oneOf(['INTER_UI', 'VOLKORN']),
   marginTop: PropTypes.number,
   marginBottom: PropTypes.number,
   marginBottomS: PropTypes.number,
@@ -92,7 +82,7 @@ Heading.propTypes = {
   html: PropTypes.string,
   light: PropTypes.bool,
   colour: PropTypes.string,
-  uppercase: PropTypes.oneOf(['uppercase', 'lowercase']),
+  uppercase: PropTypes.oneOf(['uppercase', 'none']),
 }
 
 export default Heading

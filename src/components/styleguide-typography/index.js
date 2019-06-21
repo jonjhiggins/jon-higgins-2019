@@ -8,10 +8,8 @@ import { GRID_GUTTER_REM } from '~/src/settings/grid'
 import { rem } from '~/src/utils'
 import {
   interUIStyles,
-  vollkornStyles,
   BASELINE,
   INTER_UI_STYLES,
-  VOLLKORN_STYLES,
 } from '~/src/settings/typography'
 
 const circles = Object.keys(SPACING_RAW).map(key => SPACING_RAW[key])
@@ -58,13 +56,6 @@ const StyleguideTypography = () => (
         heading={`TYPOGRAPHY: INTER UI (REGULAR + BOLD)`}
         paragraph={`USE CAPS X-HEIGHT FOR ALIGNMENT <br />
         -10% SPACING UNLESS OTHERWISE SPECIFIED`}
-      />
-      <StyleguideTypographyColumn
-        block={vollkornStyles}
-        text={VOLLKORN_STYLES}
-        type={'VOLLKORN'}
-        heading={`TYPOGRAPHY: VOLLKORN (REGULAR + BOLD)`}
-        paragraph={`USE LOWERCASE X-HEIGHT FOR ALIGNMENT<br/><br/>`}
       />
       <StyleguideTypographyColumn
         heading={`SPACING`}

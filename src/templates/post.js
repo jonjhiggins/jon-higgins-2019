@@ -44,11 +44,7 @@ export default function Template({ data, pageTitle }) {
               />
             )}
             {date && (
-              <Heading
-                element={'time'}
-                marginBottom={2}
-                colour={COLOURS.HIGHLIGHT}
-              >
+              <Heading element={'time'} marginBottom={2}>
                 {date}
               </Heading>
             )}

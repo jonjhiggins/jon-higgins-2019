@@ -15,6 +15,8 @@ const Column = styled('li')`
   box-sizing: border-box;
   border-top: ${rem(2)} solid rgba(0, 0, 0, 0.1);
   padding-top: ${rem(BASELINE - 2)};
+  grid-column: ${props => (props.type === 'typography' ? 'span 2' : null)};
+  list-style: none;
 `
 
 const TYPEBLOCK_MARGINS = {
@@ -26,7 +28,6 @@ const TYPEBLOCK_MARGINS = {
     BASELINE_REM * 1,
     BASELINE_REM * 2,
   ],
-  VOLLKORN: [2.5 * BASELINE_REM, 1 * BASELINE_REM, 0.5 * BASELINE_REM],
   CIRCLES: [
     5 * BASELINE_REM,
     4.5 * BASELINE_REM,
@@ -39,8 +40,7 @@ const TYPEBLOCK_MARGINS = {
 
 const TypeBlock = styled('div')({ position: 'relative' }, ({ index, type }) => {
   const marginBottom = TYPEBLOCK_MARGINS[type][index]
-  const shift = type === 'VOLLKORN' && index === 3 ? `-${BASELINE_REM}rem` : 0
-  return marginBottom ? { marginBottom: `${marginBottom}rem` } : { top: shift }
+  return marginBottom ? { marginBottom: `${marginBottom}rem` } : { top: 0 }
 })
 
 const TypeBlockP = styled('p')(
@@ -74,7 +74,7 @@ const SpacingLine = styled('ul')(
     },
   },
   ({ value, index }) => {
-    const padding = INTER_UI_STYLES[0].padding
+    const padding = INTER_UI_STYLES[1].padding
     return {
       margin: `0 0 ${TYPEBLOCK_MARGINS.CIRCLES[index]}rem`,
       '& p': {
@@ -95,8 +95,7 @@ const Circle = styled('div')(
   ({ value, index, last }) => ({
     height: `${rem(value)}`,
     width: `${rem(value)}`,
-    backgroundColor: last ? undefined : `rgba(0, 0, 0, ${0.25})`,
-    border: last ? `${rem(2)} solid ${COLOURS.PRIMARY}` : null,
+    border: `${rem(2)} solid ${COLOURS.GREY_3}`,
   })
 )
 
@@ -108,7 +107,7 @@ const StyleguideTypographyColumn = ({
   block,
   circles,
 }) => (
-  <Column>
+  <Column type={block ? 'typography' : 'circle'}>
     <Heading element={'h2'}>{heading}</Heading>
     <Heading
       element={'p'}
@@ -118,50 +117,53 @@ const StyleguideTypographyColumn = ({
     />
 
     {block &&
-      block.map((styles, childIndex) => (
-        <TypeBlock key={childIndex} index={childIndex} type={type}>
-          <TypeBlockP
-            newStyles={styles}
-            index={childIndex}
-            last={childIndex === block.length - 1}
-          >
-            <b>{text[childIndex].fontSizeRaw}</b> /{' '}
-            {text[childIndex].lineHeightRaw}{' '}
-            <TypeBlockPX>{type === 'INTER_UI' ? 'X' : 'x'}</TypeBlockPX>
-          </TypeBlockP>
-        </TypeBlock>
-      ))}
+      Object.keys(block)
+        .sort()
+        .map((key, childIndex) => (
+          <TypeBlock key={childIndex} index={childIndex} type={type}>
+            <TypeBlockP
+              newStyles={block[key]}
+              index={childIndex}
+              last={childIndex === block.length - 1}
+            >
+              <b>{text[key].fontSizeRaw}</b> / {text[key].lineHeightRaw}{' '}
+              <TypeBlockPX>{type === 'INTER_UI' ? 'X' : 'x'}</TypeBlockPX>
+            </TypeBlockP>
+          </TypeBlock>
+        ))}
 
     {circles &&
-      circles.map((value, childIndex) => (
-        <SpacingLine key={childIndex} value={value} index={childIndex}>
-          <li>
-            <Circle
-              value={value}
-              index={childIndex}
-              last={childIndex === circles.length - 1}
-            >
-              {childIndex === circles.length - 1 && (
-                <Heading element={'p'}>{value}</Heading>
-              )}
-            </Circle>
-          </li>
-          {childIndex !== circles.length - 1 && (
+      Object.keys(circles)
+        .sort((a, b) => circles[a] - circles[b])
+        .map((key, childIndex) => (
+          <SpacingLine key={childIndex} value={circles[key]} index={childIndex}>
             <li>
-              <Heading element={'p'}>{value}</Heading>
+              <Circle
+                value={circles[key]}
+                index={childIndex}
+                last={childIndex === circles.length - 1}
+              >
+                {childIndex === circles.length - 1 && (
+                  <Heading element={'p'}>{circles[key]}</Heading>
+                )}
+              </Circle>
             </li>
-          )}
-        </SpacingLine>
-      ))}
+            {childIndex !== circles.length - 1 && (
+              <li>
+                <Heading element={'p'}>{circles[key]}</Heading>
+              </li>
+            )}
+          </SpacingLine>
+        ))}
   </Column>
 )
 
 StyleguideTypographyColumn.propTypes = {
   heading: PropTypes.string,
   paragraph: PropTypes.string,
-  text: PropTypes.array,
-  type: PropTypes.oneOf(['INTER_UI', 'VOLLKORN']),
-  block: PropTypes.array,
+  text: PropTypes.shape(),
+  type: PropTypes.oneOf(['INTER_UI']),
+  block: PropTypes.shape(),
   circles: PropTypes.array,
 }
 

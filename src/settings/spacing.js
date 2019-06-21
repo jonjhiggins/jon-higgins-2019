@@ -5,10 +5,11 @@ import { BODY_FONT_SIZE } from '~/src/settings/typography'
  * @param  {number} n
  * @return {number}
  */
-const getSpacing = n => (n + 2) * (n + 2) - (n + 2) % 2
+const getSpacing = n => (n + 2) * (n + 2) - ((n + 2) % 2)
 
 const SPACING_RAW = {
   1: getSpacing(1), // 8
+  '1.5': Math.round(getSpacing(1.5)), // 11
   2: getSpacing(2), // 16
   3: getSpacing(3), // 24
   4: getSpacing(5), // 48

@@ -117,11 +117,17 @@ class LinkBlock extends React.Component {
             size={1}
             marginBottomS={0.25}
             marginBottomM={0.5}
-            colour={COLOURS.HIGHLIGHT}
+            colour={COLOURS.GREY_2}
           >
             {this.props.frontmatter.date}
           </Heading>
-          <Heading element={'h3'} sizeS={2} sizeM={3}  marginBottomS={0.75} marginBottomM={1}>
+          <Heading
+            element={'h3'}
+            sizeS={2}
+            sizeM={3}
+            marginBottomS={0.25}
+            marginBottomM={0.5}
+          >
             {this.props.frontmatter.title}
           </Heading>
           <BodyText>{this.props.frontmatter.description}</BodyText>

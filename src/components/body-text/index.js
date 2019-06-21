@@ -20,7 +20,6 @@ const BodyText = styled('div')({
     color: 'inherit',
     textDecoration: 'none',
     borderBottom: `${rem(2)} solid ${COLOURS.PRIMARY}`,
-    display: 'inline-block',
     lineHeight: '1',
     position: 'relative',
     '&::before': {
@@ -43,18 +42,21 @@ const BodyText = styled('div')({
       },
     },
   },
+  'h2, h3, h4, h5, h6': {
+    color: COLOURS.GREY_2,
+  },
   'h2, h3': {
-    ...interUIStyles[1],
-    color: COLOURS.HIGHLIGHT,
+    ...interUIStyles[2],
+    color: COLOURS.GREY_2,
     [BREAKPOINTS.M_MIN]: {
-      ...interUIStyles[2],
+      ...interUIStyles[3],
     },
   },
   h4: {
-    ...interUIStyles[1],
+    ...interUIStyles[2],
   },
   'h5, h6': {
-    ...interUIStyles[0],
+    ...interUIStyles[1],
   },
   '.gatsby-resp-image-link': {
     margin: `${rem(BASELINE)} 0`,

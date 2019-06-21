@@ -52,7 +52,7 @@ const Description = styled('div')`
 `
 
 const NavToggleButton = styled('button')({
-  ...interUIStyles[0],
+  ...interUIStyles[1],
   border: 'none',
   position: 'absolute',
   top: `${BASELINE_REM}rem`,
@@ -142,6 +142,7 @@ class SiteHeader extends React.Component {
                 <Heading
                   element={'h1'}
                   marginBottomL={0.5}
+                  uppercase={'none'}
                   size={1}
                   html={this.props.titleHTML}
                 />
