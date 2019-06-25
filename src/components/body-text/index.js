@@ -3,6 +3,7 @@ import styled from '@emotion/styled'
 import COLOURS from '~/src/settings/colours'
 import { rem } from '~/src/utils'
 import { BREAKPOINTS } from '~/src/settings/breakpoints'
+import { GRID_GUTTER, GRID_GUTTER_REM } from '~/src/settings/grid'
 import { interUIStyles, BASELINE } from '~/src/settings/typography'
 
 const BodyText = styled('div')({
@@ -63,6 +64,35 @@ const BodyText = styled('div')({
   },
   code: {
     whiteSpace: 'pre-wrap',
+  },
+  'p[data-pullquote]': {
+    [BREAKPOINTS.L_MIN]: {
+      gridColumn: '2 / 3',
+      position: 'relative',
+    },
+  },
+  'p[data-pullquote]::before': {
+    ...interUIStyles[3],
+    fontWeight: 'bold',
+    content: 'attr(data-pullquote)',
+    display: 'block',
+    color: COLOURS.PRIMARY,
+    borderTop: `${rem(2)} solid ${COLOURS.PRIMARY}`,
+    borderBottom: `${rem(2)} solid ${COLOURS.PRIMARY}`,
+    padding: `${rem(BASELINE - 2)} 0`,
+    [BREAKPOINTS.M_MIN]: {
+      marginLeft: `-${GRID_GUTTER_REM.M}`,
+      borderBottom: 'none',
+    },
+    [BREAKPOINTS.L_MIN]: {
+      border: 'none',
+      ...interUIStyles[4],
+      top: 0,
+      left: '100%',
+      position: 'absolute',
+      marginLeft: GRID_GUTTER_REM.M,
+      width: `calc(300% + ${rem(GRID_GUTTER.M * 2)})`,
+    },
   },
 })
 
