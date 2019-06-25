@@ -127,7 +127,7 @@ class Navigation extends React.Component {
                     // https://github.com/gatsbyjs/gatsby/issues/7208
                     getProps={partlyActive(css(linkStyles))}
                   >
-                    <Heading element={'h3'} sizeS={3} sizeM={1} light={true}>
+                    <Heading element={'h3'} sizeS={2} sizeM={1.5} light={true}>
                       {name}
                     </Heading>
                   </Link>

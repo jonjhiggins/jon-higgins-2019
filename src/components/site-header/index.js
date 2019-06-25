@@ -18,21 +18,18 @@ import COLOURS from '~/src/settings/colours'
 import Z_INDEX from '~/src/settings/z-index'
 
 const Header = styled('header')`
-  padding: ${rem(BASELINE * 1)} ${GRID_GUTTER_REM.S} ${rem(BASELINE / 2)};
+  padding: ${rem(BASELINE * 1)} ${GRID_GUTTER_REM.S} ${rem(BASELINE)};
   margin-bottom: ${rem(BASELINE * 2)};
   border-bottom: ${rem(1)} solid ${COLOURS.GREY_BORDER};
 
   ${BREAKPOINTS.M_MIN} {
-    padding: ${rem(BASELINE * 3)} ${GRID_GUTTER_REM.M} ${rem(BASELINE)};
+    padding: ${rem(BASELINE * 2)} ${GRID_GUTTER_REM.M} ${rem(BASELINE)};
     margin-bottom: ${rem(BASELINE * 2)};
     min-height: ${rem(BASELINE * 4)};
   }
 `
 
 const DescriptionLi = styled('li')`
-  ${BREAKPOINTS.S_MAX} {
-    margin-right: 5rem;
-  }
   ${BREAKPOINTS.M_MIN} {
     grid-column: 1 / 3;
   }
@@ -143,7 +140,7 @@ class SiteHeader extends React.Component {
                   element={'h1'}
                   marginBottomL={0.5}
                   uppercase={'none'}
-                  size={1}
+                  size={1.5}
                   html={this.props.titleHTML}
                 />
               </Link>
