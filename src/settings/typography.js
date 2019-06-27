@@ -24,12 +24,14 @@ const INTER_UI_STYLES = {
     fontSizeRaw: 22,
     lineHeightRaw: BASELINE * 2,
     padding: `${BASELINE_REM / 2}rem 0`,
+    marginTop: `0`,
     marginBottom: `${BASELINE_REM / 2}rem`,
   },
   3: {
     fontSizeRaw: 33,
     lineHeightRaw: BASELINE * 2.5,
     padding: 0,
+    marginTop: `${BASELINE_REM * 2}rem`,
     marginBottom: `${BASELINE_REM * 2}rem`,
   },
   4: {
@@ -63,6 +65,7 @@ const defaultStyle = {
     fontFamily: '"Inter UI", Helvetica, Arial, sans-serif',
     textTransform: 'none',
     letterSpacing: `-${10 / 1000}em`, // -10% tracking = 0.01em
+    marginTop: 0,
   },
 }
 
