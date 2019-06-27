@@ -1,13 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
+import { StaticQuery, graphql } from 'gatsby'
+import Img from 'gatsby-image'
 
 import Heading from '~/src/components/heading'
 import COLOURS from '~/src/settings/colours'
 import { HERO_IMAGE_SHADOW } from '~/src/settings/shadows'
 
 const HeroImages = styled('div')`
-  display: flex;
   box-shadow: ${HERO_IMAGE_SHADOW};
 
   &,
@@ -26,25 +27,49 @@ const Figure = styled('figure')`
   }
 `
 
-export default function ArticleHeaderImages({ heroImages, mediaPath }) {
+export default function ArticleHeaderImages({ heroImages }) {
   return (
-    <HeroImages>
-      {heroImages.map((img, index) => (
-        <Figure key={index}>
-          <img src={require(`../../${mediaPath}${img.image}`)} alt={img.alt} />
-          {img.caption && (
-            <Heading element={'figcaption'} size={1}>
-              {img.caption}
-            </Heading>
-          )}
-        </Figure>
-      ))}
-    </HeroImages>
+    <StaticQuery
+      query={graphql`
+        query HeaderImage {
+          allImageSharp {
+            edges {
+              node {
+                fluid(maxWidth: 933) {
+                  ...GatsbyImageSharpFluid
+                  originalName
+                }
+              }
+            }
+          }
+        }
+      `}
+      render={data => {
+        const image = data.allImageSharp.edges.find(
+          edge => edge.node.fluid.originalName === heroImages[0].image
+        )
+        if (!image) {
+          return null
+        }
+
+        return (
+          <HeroImages>
+            <Figure>
+              <Img fluid={image.node.fluid} alt={heroImages[0].alt} />
+              {heroImages[0].caption && (
+                <Heading element={'figcaption'} size={1}>
+                  {heroImages[0].caption}
+                </Heading>
+              )}
+            </Figure>
+          </HeroImages>
+        )
+      }}
+    />
   )
 }
 
 ArticleHeaderImages.propTypes = {
-  mediaPath: PropTypes.string,
   heroImages: PropTypes.arrayOf(
     PropTypes.shape({
       image: PropTypes.string,
