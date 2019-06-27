@@ -92,6 +92,7 @@ const BodyText = styled('div')({
       position: 'absolute',
       marginLeft: GRID_GUTTER_REM.M,
       width: `calc(300% + ${rem(GRID_GUTTER.M * 2)})`,
+      zIndex: -1,
     },
   },
 })
