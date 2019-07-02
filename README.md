@@ -5,7 +5,7 @@ Portfolio site build using React/GraphQL-based [Gatsby](https://www.gatsbyjs.org
 ## Install
 
 ```sh
-npm run install
+npm install
 ```
 
 ## Develop
