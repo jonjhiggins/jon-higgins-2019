@@ -42,7 +42,7 @@ To test it out, let's build a simple app that will store info about Australian s
 2.  Create file `serverless.yml` - this contains all the configuration the Serverless npm package needs to deploy to AWS.
 3.  Add the following content to `serverless.yml`:
 
-```
+```yaml
 service: serverless-test
 
 frameworkVersion: ">=1.1.0 <2.0.0"
@@ -105,7 +105,7 @@ This configuration make look complicated, but there's not too much too it:
 5.  Create `states/create.js` and `states/list.js`. These will contain the functions that create and list states respectively.
 6.  Add the following content to `states/create.js`:
 
-```
+```javascript
 const AWS = require('aws-sdk'); // eslint-disable-line import/no-extraneous-dependencies
 
 const dynamoDb = new AWS.DynamoDB.DocumentClient();
@@ -150,7 +150,7 @@ module.exports.create = (event, context, callback) => {
 
 6.  Add the following content to `states/list.js`:
 
-```
+```javascript
 const AWS = require('aws-sdk'); // eslint-disable-line import/no-extraneous-dependencies
 
 const dynamoDb = new AWS.DynamoDB.DocumentClient();

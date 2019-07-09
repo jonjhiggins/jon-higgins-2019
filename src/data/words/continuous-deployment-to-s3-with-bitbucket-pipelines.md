@@ -31,7 +31,7 @@ As neither Yarn or AWS CLI are pre-installed in our Bitbucket Pipeline environme
 * the bucket name (`your-s3-bucket-name`)
   Once that file is committed to `master` every time a change is pushed to `master` Bitbucket will build your project and upload to S3, magic.
 
-```
+```yaml
 image: node:6.9.4
 pipelines:
   branches:

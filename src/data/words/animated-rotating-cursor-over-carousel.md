@@ -13,7 +13,9 @@ Apply CSS3 transforms, transitions and animations to cursors.
 
 In order to slide forwards or backwards in carousels, a common design pattern is to use arrow buttons either side of the carousel, overlaying the carousel content.
 
-<p class="p--pullquote" data-pullquote="Making the clickable area larger and reducing the distance the user needs to travel keeps in mind Fitt's Law"> However, these buttons can encroach on content and add clutter. To avoid these issues we could:</p>
+<div data-pullquote="Making the clickable area larger and reducing the distance the user needs to travel keeps in mind Fitt's Law"></div>
+
+However, these buttons can encroach on content and add clutter. To avoid these issues we could:
 
 * **Make whole carousel clickable** - clicking on left portion will page user back one slide, clicking the right portion will page user forward one slide. Making the clickable area larger and reducing the distance the user needs to travel keeps in mind [Fitt's Law](http://en.wikipedia.org/wiki/Fitts%27s_law).
 * **Switch the users cursor over to an arrow** the arrow will indicate the direction the carousel will slide in when the user clicks. This takes up less room than two permanent arrows.

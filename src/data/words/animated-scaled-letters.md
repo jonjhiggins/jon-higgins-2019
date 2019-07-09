@@ -17,7 +17,9 @@ Start with the simplest option: a GreenSock timeline to control HTML elements. E
 
 [View on Codepen](http://codepen.io/jonjhiggins/full/EKMEvd/)
 
-<p class="p--pullquote" data-pullquote="in Chrome there are jagged edges as the letter is scaled up">For the most part this seems to work fine, however in Chrome desktop and Android there are jagged edges as the letter is scaled up.</p>
+<div data-pullquote="in Chrome there are jagged edges as the letter is scaled up"></div>
+
+For the most part this seems to work fine, however in Chrome desktop and Android there are jagged edges as the letter is scaled up.
 
 Some might argue this isn't that noticeable on fast transitions, but it bothered me. I tried forcing hardware acceleration (via GreenSock's `force3D` option and specifying scales individually), `-webkit-filter:blur(0)` switching the elements out for SVGs but the issue persisted.
 
@@ -83,7 +85,9 @@ the same line converted to work with Paper.js object
       y: textScaleBig
     })
 
-<p class="p--pullquote" data-pullquote="I noticed the object needed to be stored in a variable, or GreenSock doesn't increment from previous value">When using GreenSock on JS objects I noticed the object needed to be stored in a variable, or GreenSock doesn't seem to increment from previous value, e.g:</p>
+<div data-pullquote="I noticed the object needed to be stored in a variable, or GreenSock doesn't increment from previous value"></div>
+
+When using GreenSock on JS objects I noticed the object needed to be stored in a variable, or GreenSock doesn't seem to increment from previous value, e.g:
 
     var textAScaling = textA.scaling;
 

@@ -16,9 +16,7 @@ archive: true
 
 OPEP (Outstanding Physical Education Preparation) are a non-profit teachers' organisation looking at using collobarative sharing of ideas and resources to improve the standard of PE lessons in the UK. Having established themselves in their native Milton Keynes, OPEP partnered with sports supplier Maudesport to assist with expanding nationally through a new website.
 
-<p class="p--pullquote" data-pullquote="a strong, professional brand needed to be established to define OPEP's position and inspire others to join the cause.">Before work on the website could begin, a strong, professional brand needed to be established to define OPEP's position and inspire others to join the cause. My competitor analysis indicated that similar resource sharing sites often had underdeveloped brands, so this was identified as an area to gain traction against more established sites.</p>
-
-The brand also needed to establish a coherent brand association between OPEP and Maudesport: reflecting the strong partnership that was developing.
+<p data-pullquote="A strong, professional brand needed to be established to define OPEP's position and inspire others to join">Before work on the website could begin, a strong, professional brand needed to be established to define OPEP's position and inspire others to join the cause. My competitor analysis indicated that similar resource sharing sites often had underdeveloped brands, so this was identified as an area to gain traction against more established sites. The brand also needed to establish a coherent brand association between OPEP and Maudesport: reflecting the strong partnership that was developing.</p>
 
 #### The solution
 

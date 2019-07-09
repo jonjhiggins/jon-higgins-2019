@@ -18,7 +18,7 @@ import favicon from '~/src/images/favicon.png'
 import 'url-search-params-polyfill'
 
 // Source code highoighting CSS
-require('prismjs/themes/prism-solarizedlight.css')
+require('prismjs/themes/prism-tomorrow.css')
 
 // Fonts
 // import interUI from '~/src/fonts/inter-ui-regular.woff2'

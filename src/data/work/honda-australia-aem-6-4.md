@@ -19,7 +19,9 @@ Honda is one of the top-ten car manufacturers in Australia and its website recei
 
 The website performed well for Honda, helping them [increase sales more than 14% from 2016-18](https://www.honda.com.au/media-centre/2018/1/honda-australia-records-best-annual-sales-result-since-2008.html). However, the technical debt that had been accrued over this period was a major issue. 
 
-<p data-pullquote="Building components was a slow, painful process">Updating content and building new website components was a slow and painful process. We needed to make the website easy for non-technical users to author and simplify the codebase so that code changes could be made quicker and with more confidence. I was particularly keen to address these issues with the codebase:</p>
+<div data-pullquote="Building new components for the website was a slow, painful process"></div>
+
+Updating content and building new website components was a slow and painful process. We needed to make the website easy for non-technical users to author and simplify the codebase so that code changes could be made quicker and with more confidence. I was particularly keen to address these issues with the codebase:
 
 - Lack of code consistency - many developers had taken different approaches to the project, leading to fragmentation and making the project complex
 - Lack of transparency over changes - making changes in one area would often result in unexpected changes in other areas, as components were not encapsulated
@@ -31,7 +33,7 @@ Honda’s website was running an older version of Adobe Experience Manager (AEM)
 
 ### Reviewing the codebase, website and processes
 
-<p data-pullquote="The website was functioning well, so it was hard to get buy-in to work on these issues">When starting on the project I reviewed the codebase and could see there was some great work in places, but that a lack of consistency meant there was a huge amount of code duplication and redundancy. Some files were so long and complex they were incomprehensible. Following the initial build the team had been under a large amount of time-pressure leading to some not-so-great code and temporary hacks that had become permanent.</p>
+<p data-pullquote="The website was functioning well; it was hard to get buy-in to work on issues">When starting on the project I reviewed the codebase and could see there was some great work in places, but that a lack of consistency meant there was a huge amount of code duplication and redundancy. Some files were so long and complex they were incomprehensible. Following the initial build the team had been under a large amount of time-pressure leading to some not-so-great code and temporary hacks that had become permanent.</p>
 
 The front-end team were demotivated as they felt bogged down and embarrassed by the technical debt. Similarly the design team were frustrated by the lack of visual consistency and wanted to tackle this. While there were some very intelligent and creative people working on the project the process for delivering work was at best confusing and at worst chaotic - a million miles away from working at [Jaguar Land Rover](/work/land-rover-visual-identity-refresh/). Management above us shared these concerns but the website was functioning well from a sales perspective for Honda, so it was hard to get buy-in for time to work on these issues.
 
