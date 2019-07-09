@@ -35,13 +35,15 @@ export default function ArticleHeaderMedia({
   videoPath,
   heroImages,
   mediaPath,
+  heroVideoAutoPlay,
 }) {
   return (
     <ArticleHeaderMediaWrapper>
       {videoPath && (
         <video
           src={require(`../../${videoPath}.mp4`)}
-          autoPlay
+          autoPlay={heroVideoAutoPlay}
+          controls={!heroVideoAutoPlay}
           loop
           poster={require(`../../${videoPath}.jpg`)}
         />
@@ -64,6 +66,7 @@ export default function ArticleHeaderMedia({
 ArticleHeaderMedia.propTypes = {
   videoPath: PropTypes.string,
   mediaPath: PropTypes.string,
+  heroVideoAutoPlay: PropTypes.bool,
   heroImages: PropTypes.arrayOf(
     PropTypes.shape({
       image: PropTypes.string,

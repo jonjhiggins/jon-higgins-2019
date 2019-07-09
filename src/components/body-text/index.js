@@ -14,12 +14,17 @@ const BodyText = styled('div')({
     margin: `0 0 ${rem(BASELINE * 2)}`,
     padding: `0 0 0 1em`,
   },
+  'p + ul, p + ol': {
+    marginTop: `-${rem(BASELINE)}`,
+  },
   li: {
     marginBottom: rem(BASELINE * 1),
   },
-  'a:not(.gatsby-resp-image-link)': {
+  a: {
     color: 'inherit',
     textDecoration: 'none',
+  },
+  'a:not(.gatsby-resp-image-link):not(.footnote-backref)': {
     borderBottom: `${rem(2)} solid ${COLOURS.PRIMARY}`,
     lineHeight: '1',
     position: 'relative',
@@ -94,6 +99,9 @@ const BodyText = styled('div')({
       width: `calc(300% + ${rem(GRID_GUTTER.M * 2)})`,
       zIndex: -1,
     },
+  },
+  '.footnotes p': {
+    marginBottom: 0,
   },
 })
 

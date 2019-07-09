@@ -21,6 +21,7 @@ export default function Template({ data, pageTitle }) {
     description,
     date,
     heroVideos,
+    heroVideoAutoPlay,
     category,
     heroImages,
     contentUrl,
@@ -39,6 +40,7 @@ export default function Template({ data, pageTitle }) {
             {(videoPath || heroImages) && (
               <ArticleHeaderMedia
                 videoPath={videoPath}
+                heroVideoAutoPlay={heroVideoAutoPlay}
                 mediaPath={mediaPath}
                 heroImages={heroImages}
               />
@@ -86,6 +88,7 @@ export const pageQuery = graphql`
         title
         description
         heroVideos
+        heroVideoAutoPlay
         heroImages {
           image
           caption
