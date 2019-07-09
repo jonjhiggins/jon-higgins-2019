@@ -39,12 +39,14 @@ export default function ArticleHeaderMedia({
     <ArticleHeaderMediaWrapper>
       {videoPath && (
         <video
-          src={require(`../../${videoPath}.mp4`)}
           autoPlay={heroVideoAutoPlay}
+          muted={heroVideoAutoPlay}
           controls={!heroVideoAutoPlay}
           loop
           poster={require(`../../${videoPath}.jpg`)}
-        />
+        >
+          <source src={require(`../../${videoPath}.mp4`)} type="video/mp4" />
+        </video>
       )}
       {/* Single image hero */}
       {!videoPath && heroImages.length === 1 && (

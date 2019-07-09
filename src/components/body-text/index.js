@@ -9,7 +9,7 @@ import { interUIStyles, BASELINE } from '~/src/settings/typography'
 const dashedBorder = `${rem(2)} dashed ${COLOURS.PRIMARY}`
 
 const BodyText = styled('div')({
-  'p, blockquote': {
+  'p, blockquote, video': {
     margin: `0 0 ${rem(BASELINE * 2)}`,
   },
   'ul, ol': {
@@ -138,6 +138,12 @@ const BodyText = styled('div')({
     background: 'transparent',
     color: 'inherit',
   },
+  video: {
+    maxWidth: '100%',
+  },
+  'img, video': {
+    border: `1px solid ${COLOURS.PRIMARY}`
+  }
 })
 
 export default BodyText
