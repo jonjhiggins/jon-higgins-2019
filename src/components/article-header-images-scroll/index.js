@@ -1,7 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
+import { StaticQuery, graphql } from 'gatsby'
 import { keyframes } from '@emotion/core'
+import Img from 'gatsby-image'
 
 import Heading from '~/src/components/heading'
 import COLOURS from '~/src/settings/colours'
@@ -46,8 +48,8 @@ const ImgHolder = styled('span')`
   overflow: hidden;
   display: block;
 
-  img {
-    position: absolute;
+  > * {
+    position: absolute !important;
     top: 0;
     left: 0;
     max-width: none;
@@ -57,28 +59,53 @@ const ImgHolder = styled('span')`
   }
 `
 
-export default function ArticleHeaderImagesScroll({ heroImages, mediaPath }) {
+export default function ArticleHeaderImagesScroll({ heroImages }) {
   return (
-    <HeroImages>
-      {heroImages.map((img, index) => (
-        <Figure key={index}>
-          <ImgHolder delay={index !== 0}>
-            <img
-              src={require(`../../${mediaPath}${img.image}`)}
-              alt={img.alt}
-            />
-          </ImgHolder>
-          <Heading element={'figcaption'} size={1}>
-            {img.caption}
-          </Heading>
-        </Figure>
-      ))}
-    </HeroImages>
+    <StaticQuery
+      query={graphql`
+        query HeaderImages {
+          allImageSharp {
+            edges {
+              node {
+                fluid(maxWidth: 466) {
+                  ...GatsbyImageSharpFluid
+                  originalName
+                }
+              }
+            }
+          }
+        }
+      `}
+      render={data => {
+        const images = data.allImageSharp.edges.filter(edge =>
+          heroImages.find(
+            heroImage => heroImage.image === edge.node.fluid.originalName
+          )
+        )
+        if (!images) {
+          return null
+        }
+
+        return (
+          <HeroImages>
+            {images.map((img, index) => (
+              <Figure key={index}>
+                <ImgHolder delay={index !== 0}>
+                  <Img fluid={img.node.fluid} alt={heroImages[index].alt} />
+                </ImgHolder>
+                <Heading element={'figcaption'} size={1}>
+                  {heroImages[index].caption}
+                </Heading>
+              </Figure>
+            ))}
+          </HeroImages>
+        )
+      }}
+    />
   )
 }
 
 ArticleHeaderImagesScroll.propTypes = {
-  mediaPath: PropTypes.string,
   heroImages: PropTypes.arrayOf(
     PropTypes.shape({
       image: PropTypes.string,

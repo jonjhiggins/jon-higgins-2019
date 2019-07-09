@@ -11,7 +11,6 @@ import CTA from '~/src/components/cta'
 import HeadingBackground from '~/src/components/heading-background'
 import Heading from '~/src/components/heading'
 import SEO from '~/src/components/seo'
-import COLOURS from '~/src/settings/colours'
 
 export default function Template({ data, pageTitle }) {
   const { markdownRemark } = data // data.markdownRemark holds our post data
@@ -41,7 +40,6 @@ export default function Template({ data, pageTitle }) {
               <ArticleHeaderMedia
                 videoPath={videoPath}
                 heroVideoAutoPlay={heroVideoAutoPlay}
-                mediaPath={mediaPath}
                 heroImages={heroImages}
               />
             )}

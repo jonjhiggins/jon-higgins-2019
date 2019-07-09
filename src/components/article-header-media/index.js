@@ -11,7 +11,6 @@ import { GRID_GUTTER } from '~/src/settings/grid'
 import { rem } from '~/src/utils'
 import { HERO_IMAGE_SHADOW } from '~/src/settings/shadows'
 
-
 const ArticleHeaderMediaWrapper = styled('div')`
   background-color: ${COLOURS.PRIMARY};
   padding: ${rem(GRID_GUTTER.S)};
@@ -34,7 +33,6 @@ const ArticleHeaderMediaWrapper = styled('div')`
 export default function ArticleHeaderMedia({
   videoPath,
   heroImages,
-  mediaPath,
   heroVideoAutoPlay,
 }) {
   return (
@@ -50,14 +48,11 @@ export default function ArticleHeaderMedia({
       )}
       {/* Single image hero */}
       {!videoPath && heroImages.length === 1 && (
-        <ArticleHeaderImage heroImages={heroImages} mediaPath={mediaPath} />
+        <ArticleHeaderImage heroImages={heroImages} />
       )}
       {/* Double scrolling images hero */}
       {!videoPath && heroImages.length > 1 && (
-        <ArticleHeaderImagesScroll
-          heroImages={heroImages}
-          mediaPath={mediaPath}
-        />
+        <ArticleHeaderImagesScroll heroImages={heroImages} />
       )}
     </ArticleHeaderMediaWrapper>
   )
@@ -65,7 +60,6 @@ export default function ArticleHeaderMedia({
 
 ArticleHeaderMedia.propTypes = {
   videoPath: PropTypes.string,
-  mediaPath: PropTypes.string,
   heroVideoAutoPlay: PropTypes.bool,
   heroImages: PropTypes.arrayOf(
     PropTypes.shape({
