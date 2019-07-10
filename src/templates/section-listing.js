@@ -1,165 +1,56 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import styled from '@emotion/styled'
 import PropTypes from 'prop-types'
-import { graphql, navigate } from 'gatsby'
-import hexRgb from 'hex-rgb'
+import { graphql } from 'gatsby'
 
-import PageWrapper from '~/src/components/page-wrapper'
-import SEO from '~/src/components/seo'
-import HeadingBackground from '~/src/components/heading-background'
-import ArticleWrapper from '~/src/components/article-wrapper'
 import Article from '~/src/components/article'
 import ArticleContent from '~/src/components/article-content'
+import ArticleWrapper from '~/src/components/article-wrapper'
 import CTA from '~/src/components/cta'
-import Heading from '~/src/components/heading'
-import BodyText from '~/src/components/body-text'
-import { BASELINE } from '~/src/settings/typography'
-import COLOURS from '~/src/settings/colours'
-import { rem } from '~/src/utils'
+import HeadingBackground from '~/src/components/heading-background'
+import LinkBlock from '~/src/components/link-block'
+import PageWrapper from '~/src/components/page-wrapper'
+import SEO from '~/src/components/seo'
 
-const PRIMARY_RGB = hexRgb(COLOURS.PRIMARY, { format: 'array' })
-PRIMARY_RGB.pop()
+import { BASELINE } from '~/src/settings/typography'
+import { BREAKPOINTS } from '~/src/settings/breakpoints'
+import { rem } from '~/src/utils'
+import COLOURS from '~/src/settings/colours'
 
 const LinkBlocks = styled('ul')`
   list-style: none;
   margin: 0;
   padding: 0;
   grid-column: article-full;
+  display: grid;
+  grid-template-columns: inherit;
+  grid-gap: inherit;
 `
 
-const LinkBlockInner = styled('li')`
+const LinkBlockSpacer = styled('li')`
   list-style: none;
   margin: 0 0 ${rem(BASELINE * 2)};
-  border: ${rem(2)} solid ${COLOURS.PRIMARY};
-  position: relative;
-  opacity: ${props => (props.visible || props.transitioning ? 1 : 0)};
-  transition: opacity 400ms ease-out;
-  & > a {
-    color: ${COLOURS.GREY_1};
-    text-decoration: none;
-    padding: ${rem(BASELINE)};
+  padding: 0;
+  display: none;
+  ${BREAKPOINTS.M_MIN} {
     display: block;
-    transition: background-color 400ms ease-out;
-    &:hover {
-      background-color: rgba(${PRIMARY_RGB.join(',')}, 0.05);
-    }
+    border: ${rem(2)} solid ${COLOURS.GREY_BORDER};
+    grid-column: span ${props => props.gridWidth};
   }
-`
-
-const TransitionBlock = styled(`div`)`
-  position: absolute;
-  background-color: ${COLOURS.PRIMARY};
-  left: ${rem(-1)};
-  top: 0;
-  width: 100%;
-  height: 100%;
-  transform: translateY(${props => props.translateY}px)
-    scaleY(${props => props.scaleY});
-  transition: all 400ms ease-out;
-  border: ${rem(2)} solid ${COLOURS.PRIMARY};
 `
 
 const Footer = styled('footer')`
   margin-top: ${rem(BASELINE * 2)};
 `
 
-class LinkBlock extends React.Component {
-  constructor() {
-    super()
-    this.handleClickBound = this.handleClick.bind(this)
-    this.state = {
-      transitioning: false,
-      transitionPosition: {
-        translateY: 0,
-        scaleY: 1,
-      },
-    }
-  }
-  handleClick(e) {
-    e.preventDefault()
-    const element = e.currentTarget
-    const url = e.currentTarget.getAttribute('href')
-    navigate(url)
-    return
-
-    const { top, left, width, height } = element.getBoundingClientRect()
-    this.setState({
-      transitioning: true,
-    })
-    const {
-      height: articleHeight,
-      top: articleTop,
-    } = this.props.fadeOutOthers()
-    const scaleY = articleHeight / height
-    console.log(scaleY)
-    const translateY = articleTop - top
-    console.log(translateY)
-    window.setTimeout(() => {
-      this.setState({
-        transitionPosition: {
-          scaleY,
-          translateY,
-        },
-      })
-    }, 100)
-    // window.setTimeout(navigate.bind(null, url), 1000)
-  }
-  render() {
-    return (
-      <LinkBlockInner
-        visible={this.props.visible}
-        transitioning={this.state.transitioning}
-      >
-        <a href={this.props.link} onClick={this.handleClickBound}>
-          <Heading
-            element={'time'}
-            size={1}
-            marginBottomS={0.25}
-            marginBottomM={0.5}
-            colour={COLOURS.GREY_2}
-          >
-            {this.props.frontmatter.date}
-          </Heading>
-          <Heading
-            element={'h3'}
-            sizeS={2}
-            sizeM={3}
-            marginBottomS={0.25}
-            marginBottomM={0.5}
-          >
-            {this.props.frontmatter.title}
-          </Heading>
-          <BodyText>{this.props.frontmatter.description}</BodyText>
-        </a>
-        {this.state.transitioning && (
-          <TransitionBlock
-            scaleY={this.state.transitionPosition.scaleY}
-            translateY={this.state.transitionPosition.translateY}
-          />
-        )}
-      </LinkBlockInner>
-    )
-  }
-}
+const Aux = props => props.children
 
 export default class Template extends React.Component {
   constructor() {
     super()
-    this.fadeOutOthersBound = this.fadeOutOthers.bind(this)
     this.state = {
       linkBlocksVisible: true,
     }
-  }
-  fadeOutOthers() {
-    const size = ReactDOM.findDOMNode(
-      this.refs['article']
-    ).getBoundingClientRect()
-    console.log(size)
-    this.setState({
-      linkBlocksVisible: false,
-    })
-    return size
   }
   render() {
     return (
@@ -167,20 +58,29 @@ export default class Template extends React.Component {
         <SEO title={this.props.heading} />
         <HeadingBackground>{this.props.heading}</HeadingBackground>
         <ArticleWrapper>
-          <Article border={false} ref="article">
+          <Article border={false} fullWidthLargeBreakpoint={true}>
             <ArticleContent centreGrid={false}>
               <LinkBlocks>
                 {this.props.items.map(({ node }, index) => {
                   const { frontmatter, fields } = node
                   return (
-                    <LinkBlock
-                      key={index}
-                      visible={this.state.linkBlocksVisible}
-                      fadeOutOthers={this.fadeOutOthersBound}
-                      link={fields.slug}
-                      frontmatter={frontmatter}
-                      handleClick={this.handleClickBound}
-                    />
+                    <Aux key={index}>
+                      <LinkBlock
+                        key={index}
+                        visible={this.state.linkBlocksVisible}
+                        link={fields.slug}
+                        frontmatter={frontmatter}
+                        handleClick={this.handleClickBound}
+                        gridWidth={() => {
+                          return (index + 1) % 2 === 0 ? 4 : 3
+                        }}
+                      />
+                      <LinkBlockSpacer
+                        gridWidth={() => {
+                          return (index + 1) % 2 === 0 ? 1 : 2
+                        }}
+                      />
+                    </Aux>
                   )
                 })}
               </LinkBlocks>

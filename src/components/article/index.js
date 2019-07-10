@@ -7,6 +7,13 @@ import { BASELINE } from '~/src/settings/typography'
 import COLOURS from '~/src/settings/colours'
 import { rem } from '~/src/utils'
 
+const columnTemplates = {
+  fourCol: `[article-full-start] 1fr [article-main-start] repeat(2, 1fr) 
+            [article-main-end] 1fr [article-full-end]`,
+  fiveCol: `[article-full-start] 1fr [article-main-start] repeat(3, 1fr) 
+  [article-main-end] 1fr [article-full-end]`,
+}
+
 const Article = styled('div')`
   border: ${props =>
     props.border ? `${rem(2)} solid ${COLOURS.PRIMARY}` : null};
@@ -28,28 +35,30 @@ const Article = styled('div')`
     margin-right: 0;
     grid-column: 1 / 6;
     display: grid;
-    grid-template-columns:
-      [article-full-start] 1fr [article-main-start] repeat(3, 1fr)
-      [article-main-end] 1fr [article-full-end];
+    grid-template-columns: ${columnTemplates.fiveCol};
     grid-column-gap: ${GRID_GUTTER_REM.M};
   }
 
   ${BREAKPOINTS.L_MIN} {
-    grid-column: 1 / 5;
-    grid-template-columns:
-      [article-full-start] 1fr [article-main-start] repeat(2, 1fr)
-      [article-main-end] 1fr [article-full-end];
+    grid-column: ${props =>
+      props.fullWidthLargeBreakpoint ? '1 / 6' : '1 / 5'};
+    grid-template-columns: ${props =>
+      props.fullWidthLargeBreakpoint
+        ? columnTemplates.fiveCol
+        : columnTemplates.fourCol};
   }
 `
 
 Article.propTypes = {
   border: PropTypes.bool,
   hasMedia: PropTypes.bool,
+  fullWidthLargeBreakpoint: PropTypes.bool,
 }
 
 Article.defaultProps = {
   border: true,
   hasMedia: false,
+  fullWidthLargeBreakpoint: false,
 }
 
 export default Article
