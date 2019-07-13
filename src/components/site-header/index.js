@@ -8,6 +8,8 @@ import Navigation from '~/src/components/navigation'
 import Grid from '~/src/components/grid'
 import { GRID_GUTTER_REM } from '~/src/settings/grid'
 import { BREAKPOINTS } from '~/src/settings/breakpoints'
+import { MAX_WIDTH_REM } from '~/src/settings/max-width'
+import ANIMATION from '~/src/settings/animation'
 import {
   interUIStyles,
   BASELINE,
@@ -17,21 +19,36 @@ import { rem } from '~/src/utils'
 import COLOURS from '~/src/settings/colours'
 import Z_INDEX from '~/src/settings/z-index'
 
+const HEADER_PADDING_M = `${rem(BASELINE * 2)} ${GRID_GUTTER_REM.M} ${rem(
+  BASELINE * 1.5
+)}`
+const HEADER_PADDING_M_FIXED = `0 ${GRID_GUTTER_REM.M}`
+
 const Header = styled('header')`
   padding: ${rem(BASELINE * 1)} ${GRID_GUTTER_REM.S} ${rem(BASELINE)};
-  margin-bottom: ${rem(BASELINE * 2)};
   border-bottom: ${rem(1)} solid ${COLOURS.GREY_BORDER};
+  position: ${props => (props.fixed ? 'fixed' : '')};
+  top: 0;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: ${Z_INDEX.NAV_OPEN};
+  background-color: ${COLOURS.WHITE};
+  max-width: ${MAX_WIDTH_REM};
+  transform: ${props => (props.foldUp ? 'translateY(-100%)' : '')};
+  transition: ${props =>
+    !props.foldUp ? `400ms transform ${ANIMATION.EASING}` : ''};
 
   ${BREAKPOINTS.M_MIN} {
-    padding: ${rem(BASELINE * 2)} ${GRID_GUTTER_REM.M} ${rem(BASELINE)};
-    margin-bottom: ${rem(BASELINE * 2)};
-    min-height: ${rem(BASELINE * 4)};
+    padding: ${props =>
+      props.fixed ? HEADER_PADDING_M_FIXED : HEADER_PADDING_M};
   }
 `
 
 const DescriptionLi = styled('li')`
   ${BREAKPOINTS.M_MIN} {
     grid-column: 1 / 3;
+    display: ${props => (props.collapsed ? 'flex' : '')};
+    align-items: ${props => (props.collapsed ? 'center' : '')};
   }
 `
 
@@ -41,7 +58,7 @@ const Description = styled('div')`
     color: inherit;
 
     & span {
-      display: block;
+      display: ${props => (props.collapsed ? 'none' : 'block')};
       text-transform: none;
       color: ${COLOURS.GREY_2};
     }
@@ -122,7 +139,7 @@ class SiteHeader extends React.Component {
   }
   render() {
     return (
-      <Header>
+      <Header fixed={this.props.headerFixed} foldUp={this.props.foldUp}>
         <NavToggleButton
           type="button"
           onClick={this.handleNavToggleClick.bind(this)}
@@ -133,8 +150,8 @@ class SiteHeader extends React.Component {
           {this.state.navOpen ? 'Close' : 'Menu'}
         </NavToggleButton>
         <Grid>
-          <DescriptionLi>
-            <Description>
+          <DescriptionLi collapsed={this.props.headerFixed}>
+            <Description collapsed={this.props.headerFixed}>
               <Link to="/">
                 <Heading
                   element={'h1'}
@@ -151,6 +168,7 @@ class SiteHeader extends React.Component {
               open={this.state.navOpen}
               handleMenuClick={this.events.handleMenuClick}
               navigationLinks={this.props.navigationLinks}
+              headerFixed={this.props.headerFixed}
             />
           </NavLi>
         </Grid>
@@ -161,6 +179,8 @@ class SiteHeader extends React.Component {
 
 SiteHeader.propTypes = {
   titleHTML: PropTypes.string,
+  headerFixed: PropTypes.bool,
+  foldUp: PropTypes.bool,
   navigationLinks: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string,

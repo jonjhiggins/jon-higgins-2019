@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { css, ClassNames, Global } from '@emotion/core'
+import { css, ClassNames } from '@emotion/core'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 
@@ -38,9 +38,13 @@ const linkStyles = css`
       width: 100%;
       height: 1px;
       border-bottom: ${rem(2)} solid ${COLOURS.PRIMARY};
-      transform: scaleX(0);
       transition: 100ms transform ${ANIMATION.EASING_OUT};
       transform-origin: 0 0;
+      transform: scaleX(0);
+
+      ${BREAKPOINTS.M_MIN} {
+        transform: scaleX(0) translateY(-${rem(BASELINE * 0.5)});
+      }
     }
   }
 
@@ -49,6 +53,9 @@ const linkStyles = css`
     > h3 {
       &::after {
         transform: scaleX(1);
+        ${BREAKPOINTS.M_MIN} {
+          transform: scaleX(1) translateY(-${rem(BASELINE * 0.5)});
+        }
       }
     }
   }
@@ -70,7 +77,7 @@ const NavigationWrapper = styled('nav')(
       alignItems: 'center',
       backgroundColor: `${COLOURS.WHITE}`,
       padding: `${rem(BASELINE * 3)} ${GRID_GUTTER_REM.S}`,
-      zIndex: `${Z_INDEX.NAV_OPEN}`,
+      zIndex: Z_INDEX.NAV_OPEN,
     },
     [BREAKPOINTS.M_MIN]: {
       position: 'relative',
@@ -119,7 +126,7 @@ class Navigation extends React.Component {
               {/* Have to wrap in ClassNames otherwise style won't be injected
               as emotion doesn't have an element to tie it to */}
               <ClassNames>
-                {({ css, cx }) => (
+                {({ css }) => (
                   <Link
                     to={link}
                     onClick={this.props.handleMenuClick}
@@ -143,6 +150,7 @@ class Navigation extends React.Component {
 
 Navigation.propTypes = {
   open: PropTypes.bool,
+  headerFixed: PropTypes.bool,
   handleMenuClick: PropTypes.func,
   navigationLinks: PropTypes.arrayOf(
     PropTypes.shape({

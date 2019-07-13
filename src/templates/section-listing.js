@@ -71,14 +71,14 @@ export default class Template extends React.Component {
                         link={fields.slug}
                         frontmatter={frontmatter}
                         handleClick={this.handleClickBound}
-                        gridWidth={() => {
+                        gridWidth={(() => {
                           return (index + 1) % 2 === 0 ? 4 : 3
-                        }}
+                        })()}
                       />
                       <LinkBlockSpacer
-                        gridWidth={() => {
+                        gridWidth={(() => {
                           return (index + 1) % 2 === 0 ? 1 : 2
-                        }}
+                        })()}
                       />
                     </Aux>
                   )
