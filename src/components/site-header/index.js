@@ -121,72 +121,55 @@ const NavLi = styled('li')({
   },
 })
 
-class SiteHeader extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      navOpen: false,
-    }
-    this.events = {
-      handleMenuClick: this.handleMenuClick.bind(this),
-    }
-  }
-  handleNavToggleClick() {
-    this.setState({ navOpen: !this.state.navOpen })
-  }
-  handleMenuClick() {
-    this.setState({ navOpen: false })
-  }
-  render() {
-    return (
-      <Header fixed={this.props.headerFixed} foldUp={this.props.foldUp}>
-        <NavToggleButton
-          type="button"
-          onClick={this.handleNavToggleClick.bind(this)}
-        >
-          <BurgerIcons open={this.state.navOpen}>
-            <span />
-          </BurgerIcons>
-          {this.state.navOpen ? 'Close' : 'Menu'}
-        </NavToggleButton>
-        <Grid>
-          <DescriptionLi collapsed={this.props.headerFixed}>
-            <Description collapsed={this.props.headerFixed}>
-              <Link to="/">
-                <Heading
-                  element={'h1'}
-                  marginBottomL={0.5}
-                  uppercase={'none'}
-                  size={1.5}
-                  html={this.props.titleHTML}
-                />
-              </Link>
-            </Description>
-          </DescriptionLi>
-          <NavLi>
-            <Navigation
-              open={this.state.navOpen}
-              handleMenuClick={this.events.handleMenuClick}
-              navigationLinks={this.props.navigationLinks}
-              headerFixed={this.props.headerFixed}
-            />
-          </NavLi>
-        </Grid>
-      </Header>
-    )
-  }
+const SiteHeader = props => {
+  return (
+    <Header fixed={props.headerFixed} foldUp={props.foldUp}>
+      <NavToggleButton type="button" onClick={props.handleNavToggleClick}>
+        <BurgerIcons open={props.navOpen}>
+          <span />
+        </BurgerIcons>
+        {props.navOpen ? 'Close' : 'Menu'}
+      </NavToggleButton>
+      <Grid>
+        <DescriptionLi collapsed={props.headerFixed}>
+          <Description collapsed={props.headerFixed}>
+            <Link to="/">
+              <Heading
+                element={'h1'}
+                marginBottomL={0.5}
+                uppercase={'none'}
+                size={1.5}
+                html={props.titleHTML}
+              />
+            </Link>
+          </Description>
+        </DescriptionLi>
+        <NavLi>
+          <Navigation
+            open={props.navOpen}
+            handleMenuClick={props.handleMenuClick}
+            navigationLinks={props.navigationLinks}
+            headerFixed={props.headerFixed}
+          />
+        </NavLi>
+      </Grid>
+    </Header>
+  )
 }
 
 SiteHeader.propTypes = {
   titleHTML: PropTypes.string,
   headerFixed: PropTypes.bool,
   foldUp: PropTypes.bool,
+  navOpen: PropTypes.bool,
   navigationLinks: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string,
       link: PropTypes.string,
     })
   ),
+  handleNavToggleClick: PropTypes.func,
+  handleMenuClick: PropTypes.func,
 }
 
 export default SiteHeader

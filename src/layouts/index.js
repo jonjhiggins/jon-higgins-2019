@@ -79,10 +79,12 @@ class LayoutComponent extends React.PureComponent {
     super()
     this.handleScrollBound = this.handleScroll.bind(this)
     this.handleBreakpointChangeBound = this.handleBreakpointChange.bind(this)
+    /* Probably should be global state... */
     this.state = {
       breakpointSmall: true,
       headerFixed: false,
       headerFoldUp: false,
+      navOpen: false,
     }
   }
   componentDidMount() {
@@ -155,6 +157,18 @@ class LayoutComponent extends React.PureComponent {
       this.setState({ headerFoldUp: false })
     }
   }
+  /**
+   * Toggle small screen menu
+   */
+  handleNavToggleClick() {
+    this.setState({ navOpen: !this.state.navOpen })
+  }
+  /**
+   * Click on link in nav to close small screen menu
+   */
+  handleMenuClick() {
+    this.setState({ navOpen: false })
+  }
   render() {
     const { siteData, location, children } = this.props
     const search = location ? location.search : null
@@ -180,6 +194,9 @@ class LayoutComponent extends React.PureComponent {
           navigationLinks={siteData.site.siteMetadata.navigationLinks}
           headerFixed={this.state.headerFixed}
           foldUp={this.state.headerFoldUp}
+          handleNavToggleClick={this.handleNavToggleClick.bind(this)}
+          handleMenuClick={this.handleMenuClick.bind(this)}
+          navOpen={this.state.navOpen}
         />
         <MainContent>
           <Transition location={location}>{children}</Transition>
