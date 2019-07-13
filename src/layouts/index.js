@@ -71,6 +71,8 @@ const memoryStore = {
   },
 }
 
+const mediaQueryList = window.matchMedia(`(min-width: ${BREAKPOINTS_RAW.M}px)`)
+
 /**
  * Use PureComponent so setState doesn't always trigger componentDidUpdate
  */
@@ -99,9 +101,6 @@ class LayoutComponent extends React.PureComponent {
     window.addEventListener('scroll', this.handleScrollBound)
 
     // Set up media query listeners (header different height on big screen)
-    const mediaQueryList = window.matchMedia(
-      `(min-width: ${BREAKPOINTS_RAW.M}px)`
-    )
     this.setState({ breakpointSmall: !mediaQueryList.matches })
     mediaQueryList.addListener(this.handleBreakpointChangeBound)
   }
@@ -111,6 +110,7 @@ class LayoutComponent extends React.PureComponent {
       return
     }
     window.removeEventListener('scroll', this.handleScrollBound)
+    mediaQueryList.removeListener(this.handleBreakpointChangeBound)
   }
   /**
    * Handle user scroll event - collapse the header
@@ -140,20 +140,30 @@ class LayoutComponent extends React.PureComponent {
    * @param {MediaQueryListEvent} e
    */
   handleBreakpointChange(e) {
-    this.setState({ breakpointSmall: !e.matches })
+    const isSmallScreen = !e.matches
+    this.setState({ breakpointSmall: isSmallScreen })
+    // Close the small screen menu when switching to large screen
+    if (!isSmallScreen) {
+      this.setState({ navOpen: false })
+    }
   }
   /**
    * Fix/unfix site header, fold up/down site header when fixed
    */
   fixUnFixHeader(headerFixed, scrollingUp) {
+    // Debounce if waiting for requestAnimationFrame
+    memoryStore.set(MEMORY_STORE_KEYS.WAITING_FOR_ANIMATION_FRAME, false)
+
+    if (this.state.navOpen) {
+      return
+    }
+
     this.setState({
       headerFixed,
       headerFoldUp: headerFixed,
     })
-    // Debounce if waiting for requestAnimationFrame
-    memoryStore.set(MEMORY_STORE_KEYS.WAITING_FOR_ANIMATION_FRAME, false)
 
-    if (headerFixed && scrollingUp && this.state.head) {
+    if (headerFixed && scrollingUp) {
       this.setState({ headerFoldUp: false })
     }
   }
@@ -162,6 +172,14 @@ class LayoutComponent extends React.PureComponent {
    */
   handleNavToggleClick() {
     this.setState({ navOpen: !this.state.navOpen })
+    if (!this.state.navOpen) {
+      return
+    }
+    // Nav is open so unfix and fold down the menu
+    this.setState({
+      headerFixed: false,
+      headerFoldUp: false,
+    })
   }
   /**
    * Click on link in nav to close small screen menu
