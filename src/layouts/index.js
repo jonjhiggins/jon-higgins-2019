@@ -71,7 +71,10 @@ const memoryStore = {
   },
 }
 
-const mediaQueryList = window.matchMedia(`(min-width: ${BREAKPOINTS_RAW.M}px)`)
+const mediaQueryList =
+  typeof window === 'undefined'
+    ? null
+    : window.matchMedia(`(min-width: ${BREAKPOINTS_RAW.M}px)`)
 
 /**
  * Use PureComponent so setState doesn't always trigger componentDidUpdate
