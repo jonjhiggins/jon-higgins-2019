@@ -4,7 +4,7 @@ title: Hello!
 
 ![Headshot](images/jon-headshot-2.jpg)
 
-> I love working in the digital industry; everday I learn, experiment and collaborate with new technologies and creative minds. 
+> I love working in the digital industry; everyday I learn, experiment and collaborate with new technologies and creative minds. 
 
 ### Contact me
 
