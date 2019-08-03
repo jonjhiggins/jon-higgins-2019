@@ -69,9 +69,11 @@ const NavToggleButton = styled('button')({
   ...interUIStyles[1],
   border: 'none',
   position: 'absolute',
-  top: `${BASELINE_REM}rem`,
-  right: GRID_GUTTER_REM.S,
+  padding: `${BASELINE_REM}rem ${GRID_GUTTER_REM.S}`,
+  top: `0.25rem`,
+  right: 0,
   backgroundColor: 'transparent',
+  margin: 0,
   zIndex: `${Z_INDEX.NAV_OPEN + 1}`,
   [BREAKPOINTS.M_MIN]: {
     display: 'none;',
