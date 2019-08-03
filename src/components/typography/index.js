@@ -39,6 +39,12 @@ const globalStyles = css`
   #___gatsby > * {
     height: 100%;
   }
+
+  /* suppress focus ring on form controls for mouse and touch users */
+  [data-whatintent='mouse'] *:focus,
+  [data-whatintent='touch'] *:focus {
+    outline: none;
+  }
 `
 
 export default class Typography extends React.Component {

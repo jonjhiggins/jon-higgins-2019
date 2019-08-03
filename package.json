@@ -30,7 +30,8 @@
     "react-dom": "^16.8.6",
     "react-helmet": "^6.0.0-beta",
     "react-transition-group": "^2.5.3",
-    "url-search-params-polyfill": "^5.0.0"
+    "url-search-params-polyfill": "^5.0.0",
+    "what-input": "^5.2.3"
   },
   "keywords": [
     "gatsby"

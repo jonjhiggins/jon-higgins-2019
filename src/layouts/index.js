@@ -14,6 +14,9 @@ import { BREAKPOINTS_RAW, BREAKPOINTS } from '~/src/settings/breakpoints'
 import { rem } from '~/src/utils'
 import favicon from '~/src/images/favicon.png'
 
+// Accessibility
+import 'what-input'
+
 // Polyfills
 // @TODO - do dynamic import
 import 'url-search-params-polyfill'
