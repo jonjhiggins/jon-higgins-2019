@@ -8,10 +8,16 @@ public_folder: assets
 collections:
   - name: work
     label: Work
-    folder: work
+    folder: backend/work
     create: true
     fields:
       - { name: path, label: Path }
       - { name: date, label: Date, widget: date }
       - { name: title, label: Title }
       - { name: body, label: Body, widget: markdown }
+      - name: layout
+        label: Layout
+        default: 'work-item'
+        options:
+          - { label: 'Work item', value: 'work-item' }
+        widget: select
