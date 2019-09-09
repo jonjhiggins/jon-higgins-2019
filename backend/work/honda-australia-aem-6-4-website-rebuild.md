@@ -7,6 +7,7 @@ description: >-
   website, whilst working at Leo Burnett Melbourne.
 heroImages:
   - alt: Honda Cars website
+    caption: caption
     image: /assets/honda-australia-aem-6-4.jpg
 heroVideos:
   - ''
