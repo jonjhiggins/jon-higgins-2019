@@ -18,7 +18,6 @@ hide: false
 layout: work-item
 category: work
 ---
-Honda is one of the top-ten car manufacturers in Australia and its website receives millions of hits a year.
 
 ## The problem
 
