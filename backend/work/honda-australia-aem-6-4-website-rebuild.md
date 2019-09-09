@@ -12,7 +12,7 @@ heroImages:
 heroVideos:
   - ''
 heroVideoAutoPlay: false
-contentURL: 'https://honda.com.au/cars'
+contentUrl: 'https://honda.com.au/cars'
 archive: false
 hide: false
 layout: work-item
