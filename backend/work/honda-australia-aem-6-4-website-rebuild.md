@@ -7,6 +7,7 @@ description: >-
   website, whilst working at Leo Burnett Melbourne.
 contentURL: 'https://honda.com.au/cars'
 archive: false
+hide: false
 layout: work-item
 category: work
 ---
