@@ -6,7 +6,8 @@ description: >-
   For 1.5 years I led the front-end development on the Honda Australia Cars
   website, whilst working at Leo Burnett Melbourne.
 heroImages:
-  - undefined: /assets/honda-australia-aem-6-4.jpg
+  - alt: Honda Cars website
+    image: /assets/honda-australia-aem-6-4.jpg
 heroVideos:
   - ''
 heroVideoAutoPlay: false
