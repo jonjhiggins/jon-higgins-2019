@@ -27,7 +27,9 @@ export default function Template({ data, pageTitle }) {
   } = frontmatter
   const mediaPath = `data/${category}/images/`
   const videoPath =
-    heroVideos && heroVideos.length ? `${mediaPath}${heroVideos[0]}` : null
+    heroVideos && heroVideos.length && heroVideos[0] !== ''
+      ? `${mediaPath}${heroVideos[0]}`
+      : null
   const hasMedia = videoPath !== null || (heroImages && heroImages.length > 0)
   return (
     <PageWrapper>
@@ -92,7 +94,6 @@ export const pageQuery = graphql`
           caption
           alt
         }
-        images
         category
         contentUrl
       }
