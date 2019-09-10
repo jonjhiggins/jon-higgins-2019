@@ -1,0 +1,90 @@
+{
+  "id": "backstop_default",
+  "viewports": [
+    {
+      "label": "phone",
+      "width": 320,
+      "height": 480
+    },
+    {
+      "label": "tablet",
+      "width": 1024,
+      "height": 768
+    }
+  ],
+  "onBeforeScript": "puppet/onBefore.js",
+  "onReadyScript": "puppet/onReady.js",
+  "scenarios": [
+    {
+      "label": "/words/cancer-central-hackathon/",
+      "url": "http://localhost:9000/words/cancer-central-hackathon/"
+    },
+    {
+      "label": "/work/honda-australia-aem-6-4/",
+      "url": "http://localhost:9000/work/honda-australia-aem-6-4/"
+    },
+    { "label": "/work/typography-test/", "url": "http://localhost:9000/work/typography-test/" },
+    { "label": "/work/vr-visual-remix/", "url": "http://localhost:9000/work/vr-visual-remix/" },
+    {
+      "label": "/words/continuous-deployment-to-s3-with-bitbucket-pipelines/",
+      "url": "http://localhost:9000/words/continuous-deployment-to-s3-with-bitbucket-pipelines/"
+    },
+    { "label": "/words/going-serverless/", "url": "http://localhost:9000/words/going-serverless/" },
+    {
+      "label": "/words/animated-scaled-letters/",
+      "url": "http://localhost:9000/words/animated-scaled-letters/"
+    },
+    {
+      "label": "/work/land-rover-interactive-stories/",
+      "url": "http://localhost:9000/work/land-rover-interactive-stories/"
+    },
+    {
+      "label": "/words/animated-rotating-cursor-over-carousel/",
+      "url": "http://localhost:9000/words/animated-rotating-cursor-over-carousel/"
+    },
+    {
+      "label": "/work/land-rover-visual-identity-refresh/",
+      "url": "http://localhost:9000/work/land-rover-visual-identity-refresh/"
+    },
+    { "label": "/work/we-are-10/", "url": "http://localhost:9000/work/we-are-10/" },
+    { "label": "/work/the-icc/", "url": "http://localhost:9000/work/the-icc/" },
+    {
+      "label": "/words/grunt-for-email-templates/",
+      "url": "http://localhost:9000/words/grunt-for-email-templates/"
+    },
+    { "label": "/work/instiller-website/", "url": "http://localhost:9000/work/instiller-website/" },
+    { "label": "/work/opep-website/", "url": "http://localhost:9000/work/opep-website/" },
+    { "label": "/work/opep-brand/", "url": "http://localhost:9000/work/opep-brand/" },
+    { "label": "/work/instiller-email/", "url": "http://localhost:9000/work/instiller-email/" },
+    { "label": "/words/brand-paradox/", "url": "http://localhost:9000/words/brand-paradox/" },
+    { "label": "/words/formdata-ie10/", "url": "http://localhost:9000/words/formdata-ie10/" },
+    { "label": "/words/max-device-width/", "url": "http://localhost:9000/words/max-device-width/" },
+    { "label": "/work/instiller-ui/", "url": "http://localhost:9000/work/instiller-ui/" },
+    {
+      "label": "/work/virgin-media-emails/",
+      "url": "http://localhost:9000/work/virgin-media-emails/"
+    },
+    { "label": "/", "url": "http://localhost:9000/" },
+    { "label": "/typography/", "url": "http://localhost:9000/typography/" },
+    { "label": "/who/", "url": "http://localhost:9000/who/" },
+    { "label": "/words/", "url": "http://localhost:9000/words/" },
+    { "label": "/work/archive/", "url": "http://localhost:9000/work/archive/" },
+    { "label": "/work/", "url": "http://localhost:9000/work/" }
+  ],
+  "paths": {
+    "bitmaps_reference": "backstop_data/bitmaps_reference",
+    "bitmaps_test": "backstop_data/bitmaps_test",
+    "engine_scripts": "backstop_data/engine_scripts",
+    "html_report": "backstop_data/html_report",
+    "ci_report": "backstop_data/ci_report"
+  },
+  "report": ["browser"],
+  "engine": "puppeteer",
+  "engineOptions": {
+    "args": ["--no-sandbox"]
+  },
+  "asyncCaptureLimit": 5,
+  "asyncCompareLimit": 50,
+  "debug": false,
+  "debugWindow": false
+}
