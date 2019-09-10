@@ -21,11 +21,10 @@ export default function Template({ data, pageTitle }) {
     date,
     heroVideos,
     heroVideoAutoPlay,
-    category,
     heroImages,
     contentUrl,
   } = frontmatter
-  const mediaPath = `data/${category}/images/`
+  const mediaPath = `backend/assets/`
   const videoPath =
     heroVideos && heroVideos.length && heroVideos[0] !== ''
       ? `${mediaPath}${heroVideos[0]}`
