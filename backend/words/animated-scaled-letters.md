@@ -1,15 +1,18 @@
 ---
-layout: post
+date: 2016-05-11T00:00:00.000Z
 title: 'Animated letters: DOM vs Canvas performance'
-description: Optimising the performance of a GreenSock-based continuous scaling animation using Paper.js and canvas.
-date: 2016-05-11
+description: >-
+  Optimising the performance of a GreenSock-based continuous scaling animation
+  using Paper.js and canvas.
+heroVideoAutoPlay: false
+archive: false
+hide: false
 category: words
-tags: [development, css, javascript, greensock]
 ---
 
 The goal is to create a continuous animation of letters "A" to "B" using a web browser. It should look something like this:
 
-![A to B animation](images/a-to-b.gif)
+![A to B animation](/assets/a-to-b.gif)
 
 ### Version 1: HTML / CSS and GreenSock
 

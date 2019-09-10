@@ -2,8 +2,8 @@ backend:
   name: git-gateway
   branch: feature/netlify-cms
 
-media_folder: backend/assets
-public_folder: assets
+media_folder: static/assets
+public_folder: /assets
 
 development_overrides:
   backend:
@@ -38,6 +38,7 @@ collections:
             name: alt
           - label: Caption
             name: caption
+            required: false
       - label: Hero Videos
         name: heroVideos
         widget: list
@@ -82,6 +83,7 @@ collections:
             name: alt
           - label: Caption
             name: caption
+            required: false
       - label: Hero Videos
         name: heroVideos
         widget: list

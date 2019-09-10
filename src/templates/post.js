@@ -24,7 +24,7 @@ export default function Template({ data, pageTitle }) {
     heroImages,
     contentUrl,
   } = frontmatter
-  const mediaPath = `backend/assets/`
+  const mediaPath = `static/assets/`
   const videoPath =
     heroVideos && heroVideos.length && heroVideos[0] !== ''
       ? `${mediaPath}${heroVideos[0]}`

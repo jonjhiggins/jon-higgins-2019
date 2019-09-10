@@ -1,18 +1,9 @@
 ---
-layout: post
-title: 'Animated letters: DOM vs Canvas performance'
-description: Optimising the performance of a GreenSock-based continuous scaling animation using Paper.js and canvas.
-date: 2016-05-11
-category: words
-tags: [development, css, javascript, greensock]
+title: Hello!
 ---
-![Headshot](images/jon-headshot-2.jpg)
-
-![A to B animation](images/a-to-b.gif)
+![Headshot](/assets/jon-headshot-2.jpg)
 
 > I love working in the digital industry; everyday I learn, experiment and collaborate with new technologies and creative minds. 
-
-![A to B animation](images/a-to-b.gif)
 
 ### Contact me
 

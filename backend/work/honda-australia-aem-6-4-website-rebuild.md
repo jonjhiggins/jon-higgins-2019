@@ -1,5 +1,4 @@
 ---
-path: honda-australia-aem-6-4
 date: 2019-02-01T00:00:00.000Z
 title: Honda Australia AEM 6.4 website rebuild
 description: >-
@@ -7,7 +6,7 @@ description: >-
   website, whilst working at Leo Burnett Melbourne.
 heroImages:
   - alt: Honda Cars website
-    caption: caption
+    caption: ''
     image: /assets/honda-australia-aem-6-4.jpg
 heroVideos:
   - ''
@@ -15,7 +14,6 @@ heroVideoAutoPlay: false
 contentUrl: 'https://honda.com.au/cars'
 archive: false
 hide: false
-layout: work-item
 category: work
 ---
 

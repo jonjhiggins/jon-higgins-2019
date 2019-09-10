@@ -34,7 +34,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/backend/assets`,
+        path: `${__dirname}/static/assets`,
       },
     },
     'gatsby-plugin-layout',
@@ -64,6 +64,12 @@ module.exports = {
       options: {
         plugins: [
           'gatsby-plugin-sitemap',
+          {
+            resolve: `gatsby-remark-relative-images`,
+            options: {
+              name: 'images',
+            },
+          },
           {
             resolve: `gatsby-remark-images`,
             options: {
