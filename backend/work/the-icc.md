@@ -28,7 +28,7 @@ The NEC Group (ICC's parent company) also required a new website for their new v
 
 The NEC's marketing agency [Eight Feet Tall](http://www.eightfeet-tall.com/) worked on a new visual aesthetic for the ICC, which resulted in flat PSDs of the site at desktop size. Areas with a high level of interaction were intentionally left blank so that we could prototype these together in-browser.
 
-![ICC design](images/work-item-icc-birmingham@2x.png 'ICC design')
+![ICC design](/assets/work-item-icc-birmingham@2x.png 'ICC design')
 
 ##### Frontend development
 
@@ -42,7 +42,7 @@ I led the frontend development for the ICC. My focus was on:
 
 At various points in this project I was pairing up with both frontend and backend devs, as well as designers and stakeholders. The ICC's [hall picker](http://www.theicc.co.uk/venue/halls) was one area that benefited from everyone's input, which we produced several iterations of following feedback from user testing.
 
-![ICC Hall picker](images/work-item-icc-hall-picker@2x.png 'ICC Hall picker')
+![ICC Hall picker](/assets/work-item-icc-hall-picker@2x.png 'ICC Hall picker')
 
 #### The outcome
 

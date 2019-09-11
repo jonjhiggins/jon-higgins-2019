@@ -1,17 +1,14 @@
 ---
-layout: work-item
-category: work
+date: 2015-09-01T00:00:00.000Z
 title: Land Rover interactive stories
-class: land-rover-interactive-stories
-date: 2015-09-01
-type: web
-skills: [build]
-images: [work-hero--land-rover-interactive-story@2x.jpg]
-heroVideos: [interactive-story-video-short]
+description: 'Provide immersive, magazine-style articles for global premium brand.'
+heroVideos:
+  - interactive-story-video-short
 heroVideoAutoPlay: true
-contentUrl: http://www.landrover.co.uk/above-and-beyond/featured-articles/index.html
-description: Provide immersive, magazine-style articles for global premium brand.
+contentUrl: 'http://www.landrover.co.uk/above-and-beyond/featured-articles/index.html'
 archive: false
+hide: false
+category: work
 ---
 
 ## The problem

@@ -1,14 +1,14 @@
 ---
-layout: work-item
-category: work
+date: 2011-10-01T00:00:00.000Z
 title: Design user interface for email marketing solution
-date: 2011-10-01
-type: web
-skills: [design, build]
-contentUrl: http://www.instiller.co.uk
-images: [article-image.jpg]
-description: Design user interface for powerful app used daily to send millions of emails for brands such as Premier Inn and HMV
+description: >-
+  Design user interface for powerful app used daily to send millions of emails
+  for brands such as Premier Inn and HMV
+heroVideoAutoPlay: false
+contentUrl: 'http://www.instiller.co.uk'
 archive: true
+hide: false
+category: work
 ---
 
 #### The problem
@@ -21,7 +21,7 @@ I designed and established a clean, simple visual and interactive style that was
 
 ###### Rebrandable
 
-<img src="images/work-article-instiller-ui-rebrand.png" alt="" title="Screenshot of rebrandable UI"/>
+![Screenshot of rebrandable UI](/assets/work-article-instiller-ui-rebrand.png)
 
 As the app is white label visual style is kept simple to fit with a wide range of brands.
 
@@ -31,6 +31,7 @@ Grids and consistent navigational elements improve usability. Colour was reduced
 
 ###### Powerful
 
-<img src="images/work-article-instiller-ui-item.png" alt="" title="Screenshot of UI element"/>
+![Screenshot of UI element](/assets/work-article-instiller-ui-item.png)
+
 
 UI widgets, such as javascript emulating a single page web-app improve user experience and reduce development time.

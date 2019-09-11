@@ -28,16 +28,16 @@ While I roughly knew the areas I wanted to explore it was quite hard to know how
 
 <p data-pullquote="I often use this process to organise my thoughts">First-off I wrote out all the themes I was thinking of exploring, I then categorised them and reduced until I ended up with a Venn diagram consisting of headings “music”, “pattern” and “movement”, I often use this process to organise my thoughts. I used a Venn diagram as lots of the themes crossed-over and these intersections are often interesting places to explore.</p>
 
-![Venn diagram of themes](images/virtual-reality-remix-venn-diagram.jpg)
+![Venn diagram of themes](/assets/virtual-reality-remix-venn-diagram.jpg)
 
 After going down various avenues I eventually settled on the idea of allowing the user to somehow visually remix a song using movement in VR. I felt this would allow exploration of the themes I started out with and also be feasible in the time we had for the project. I also settled on an audience (listeners of electronic music, design conscious aged 18-35) and hardware target (Oculus Go &ndash; the VR headset I had available at home). To appeal to the target market and to take into consideration the basic graphics capability of the Go I chose a minimal, geometric visual aesthetic. I always enjoy gathering and organising visual themes in moodboard format so that was my next task.
 
-![Moodboard of visual themes](images/virtual-reality-remix-moodboard.jpg)
+![Moodboard of visual themes](/assets/virtual-reality-remix-moodboard.jpg)
 
 I also created a motion moodboard for the first time as this is really relevant to VR and my project’s themes.
 
 <video muted loop autoplay>
-    <source src="/images/virtual-reality-remix-motion-moodboard.mp4" type="video/mp4">
+    <source src="/assets/virtual-reality-remix-motion-moodboard.mp4" type="video/mp4">
 </video>
 
 Presenting our moodboards and initial ideas back to the group really helped move things on. There’s something about talking through ideas face-to-face that makes them more real and also allows for spontaneous ideas and suggestions from others. It reminded me presenting work and ideas to your peers at an early stage is something I should do more of. It was also interesting to see and critique the broad range of ideas and visual aesthetics the other students had.
@@ -54,7 +54,7 @@ After discussing with our group I eventually settled on a designing and building
 
 Our tutors also reinforced the importance of working through user flows before starting the build, as it's very easy for users to get lost in VR. I fleshed out a basic user flow that allowed users to start, end and save an experience and also a section for on-boarding them so they would understand how to use the experience. Unfortunately due to time constraints I only built the in game experience, but I could see how planning the user flow would be useful in future projects.
 
-![User flow diagram](images/virtual-reality-remix-user-flow.png)
+![User flow diagram](/assets/virtual-reality-remix-user-flow.png)
 
 ## Presenting the design document and planning
 
@@ -72,13 +72,13 @@ Recognising the shapes proved to be more challenging. I had no idea where to sta
 
 Instead I did some reading on gesture recognition and came across the [$P](http://depts.washington.edu/ilab/proj/dollar/pdollar.html) project that recognised gestures and could also be taught to recognise specific gestures.
 
-![$P gestures](images/virtual-reality-remix-dollar-p.jpg)
+![$P gestures](/assets/virtual-reality-remix-dollar-p.jpg)
 
 
 Luckily someone had ported \$P to a [Unity asset](https://assetstore.unity.com/packages/tools/input-management/pdollar-point-cloud-gesture-recognizer-21660). After integrating the asset I had to remove its inbuilt gestures and teach it various gestures for the three shapes I had chose (triangle, square, circle). After a lot of toing and froing I finally got the shape gesture recognition to work!
 
 <video muted loop autoplay>
-    <source src="/images/virtual-reality-remix-gesture.mp4" type="video/mp4">
+    <source src="/assets/virtual-reality-remix-gesture.mp4" type="video/mp4">
 </video>
 
 ## Getting shape recognition to control audio tracks
@@ -97,13 +97,13 @@ To add visual interest when an audio track is playing I ended up with using two 
 
 
 <video muted loop autoplay>
-    <source src="/images/virtual-reality-remix-starfield.mp4" type="video/mp4">
+    <source src="/assets/virtual-reality-remix-starfield.mp4" type="video/mp4">
 </video>
 
 The second particle system I used was a warp field &ndash; I liked the way this changed as you looked at it from different angles, encouraging the user to move.
 
 <video muted loop autoplay>
-    <source src="/images/virtual-reality-remix-warpfield.mp4" type="video/mp4">
+    <source src="/assets/virtual-reality-remix-warpfield.mp4" type="video/mp4">
 </video>
 
 Finally I used a trail renderer to draw thick lines, these are supposed to be random but I drew them between fixed points as I found them easier to control.

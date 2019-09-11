@@ -45,9 +45,11 @@ export default function ArticleHeaderImages({ heroImages }) {
         }
       `}
       render={data => {
-        const image = data.allImageSharp.edges.find(
-          edge => edge.node.fluid.originalName === heroImages[0].image
-        )
+        const image = data.allImageSharp.edges.find(edge => {
+          const pieces = heroImages[0].image.split('/')
+          const originalName = pieces[pieces.length - 1]
+          return edge.node.fluid.originalName === originalName
+        })
         if (!image) {
           return null
         }

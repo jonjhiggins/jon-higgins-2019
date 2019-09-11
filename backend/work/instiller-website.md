@@ -29,8 +29,8 @@ Instiller were happy with the general visual aesthetic, the main areas for impro
 
 ##### Resolve build quality issues
 
-* The site's approach to responsive layouts. ![Responsive issue](images/work-item-instiller-site-responsive-issue.png 'Responsive issue')
-* Grid system implemented did not allow for more complex layouts. ![Grid issue](images/work-item-instiller-site-grid-issue.png 'Grid issue')
+* The site's approach to responsive layouts. ![Responsive issue](/assets/work-item-instiller-site-responsive-issue.png 'Responsive issue')
+* Grid system implemented did not allow for more complex layouts. ![Grid issue](/assets/work-item-instiller-site-grid-issue.png 'Grid issue')
 * Lack of consistent vertical rhythmn.
 * Lack of consistent typographic rhythm.
 * Adding new pages and layouts was disproprtionately time consuming.

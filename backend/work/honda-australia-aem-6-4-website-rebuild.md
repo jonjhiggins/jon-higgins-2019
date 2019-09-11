@@ -1,18 +1,21 @@
 ---
-layout: work-item
-category: work
+date: 2019-02-01T00:00:00.000Z
 title: Honda Australia AEM 6.4 website rebuild
-class: honda-australia-aem-6-4
-date: 2019-02-01
+description: >-
+  For 1.5 years I led the front-end development on the Honda Australia Cars
+  website, whilst working at Leo Burnett Melbourne.
 heroImages:
-  - 
-    image: honda-australia-aem-6-4.jpg
-    alt: Honda Cars website
-contentUrl: http://honda.com.au/cars
-description: For 1.5 years I led the front-end development on the Honda Australia Cars website, whilst working at Leo Burnett Melbourne.
+  - alt: Honda Cars website
+    caption: ''
+    image: /assets/honda-australia-aem-6-4.jpg
+heroVideos:
+  - ''
+heroVideoAutoPlay: false
+contentUrl: 'https://honda.com.au/cars'
 archive: false
+hide: false
+category: work
 ---
-
 Honda is one of the top-ten car manufacturers in Australia and its website receives millions of hits a year.
 
 ## The problem
@@ -23,9 +26,9 @@ The website performed well for Honda, helping them [increase sales more than 14%
 
 Updating content and building new website components was a slow and painful process. We needed to make the website easy for non-technical users to author and simplify the codebase so that code changes could be made quicker and with more confidence. I was particularly keen to address these issues with the codebase:
 
-- Lack of code consistency - many developers had taken different approaches to the project, leading to fragmentation and making the project complex
-- Lack of transparency over changes - making changes in one area would often result in unexpected changes in other areas, as components were not encapsulated
-- Lack of visual consistency - we had not implemented our newly created Honda Global Experience Language (GEL)
+* Lack of code consistency - many developers had taken different approaches to the project, leading to fragmentation and making the project complex
+* Lack of transparency over changes - making changes in one area would often result in unexpected changes in other areas, as components were not encapsulated
+* Lack of visual consistency - we had not implemented our newly created Honda Global Experience Language (GEL)
 
 ## The solution
 
@@ -55,15 +58,15 @@ From the development side I introduced pull-requests to enable team ownership of
 
 While the dev team agreed the project suffered from a lack of consistency and was frustrating to work on, most of the current team were unsure about how to fix these problems. I helped them transition them from working in methods that suit quick campaign websites to working on a large-scale project with multiple developers working on it. In particular reinforcing the importance of:
 
-- Consistency in code conventions and naming conventions - makes the project easier to understand
-- Break things down in to smaller functions, components or files - make them easier to document, understand and re-use
-- Communication - talk to other developers or designers when facing issues and we can tackle as a team
-- Make sure components are encapsulated and loosely coupled - reduce side-effects from future changes
-- GIT: take time to review diff before committing - avoid mistakes before they come up in pull-request review
-- GIT: write informative commit messages linked to a JIRA issue - easier to understand why change was made when reviewing pull-requests and bug fixing in the future
-- Write informative comments in code, [JSDoc](https://github.com/jsdoc/jsdoc) all JS functions
-- Only change what there is time to do and don’t get overwhelmed - backlog issues too big to tackle now and discuss approach as a team
-- If hacks or hotfixes have to be used, add backlog task to remove them and make the team aware of it so it can be prioritised
+* Consistency in code conventions and naming conventions - makes the project easier to understand
+* Break things down in to smaller functions, components or files - make them easier to document, understand and re-use
+* Communication - talk to other developers or designers when facing issues and we can tackle as a team
+* Make sure components are encapsulated and loosely coupled - reduce side-effects from future changes
+* GIT: take time to review diff before committing - avoid mistakes before they come up in pull-request review
+* GIT: write informative commit messages linked to a JIRA issue - easier to understand why change was made when reviewing pull-requests and bug fixing in the future
+* Write informative comments in code, [JSDoc](https://github.com/jsdoc/jsdoc) all JS functions
+* Only change what there is time to do and don’t get overwhelmed - backlog issues too big to tackle now and discuss approach as a team
+* If hacks or hotfixes have to be used, add backlog task to remove them and make the team aware of it so it can be prioritised
 
 After agreeing as a team on [code conventions](https://github.com/leo-burnett-melbourne/coding-standards) I added a number of tools to the front-end project to ensure code consistency, in particular running [Prettier](https://github.com/prettier/prettier), [ESLint](https://github.com/eslint/eslint) and [Stylelint](https://github.com/stylelint/stylelint) when committing. This initially caused some friction as developers did not like the tools reporting issues with their code - I understood their frustrations so we patiently worked together on fixing issues and turning off rules we didn’t think were useful. After a while they started to see the benefits and were happy to keep them.
 

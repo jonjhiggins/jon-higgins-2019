@@ -22,12 +22,19 @@ module.exports = {
     ],
   },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-netlify-cms',
+      options: {
+        modulePath: `${__dirname}/src/cms/cms.js`,
+        manualInit: true,
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/static/assets`,
       },
     },
     'gatsby-plugin-layout',
@@ -48,7 +55,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `./src/data/`,
+        path: `./backend/`,
         name: 'markdown-pages',
       },
     },
@@ -57,6 +64,12 @@ module.exports = {
       options: {
         plugins: [
           'gatsby-plugin-sitemap',
+          {
+            resolve: `gatsby-remark-relative-images`,
+            options: {
+              name: 'images',
+            },
+          },
           {
             resolve: `gatsby-remark-images`,
             options: {

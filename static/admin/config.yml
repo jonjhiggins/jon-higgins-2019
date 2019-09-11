@@ -1,0 +1,109 @@
+backend:
+  name: git-gateway
+  branch: feature/netlify-cms
+
+media_folder: static/assets
+public_folder: /assets
+
+development_overrides:
+  backend:
+    name: file-system
+    api_root: 'http://localhost:8000/api'
+
+collections:
+  - name: who
+    label: Who
+    folder: backend/who
+    fields:
+      - { name: title, label: Title }
+      - { name: body, label: Body, widget: markdown }
+  - name: words
+    label: Words
+    folder: backend/words
+    create: true
+    fields:
+      - { name: date, label: Date, widget: date }
+      - { name: title, label: Title }
+      - { name: description, label: Description, widget: markdown }
+      - { name: body, label: Body, widget: markdown }
+      - name: heroImages
+        label: Hero Images
+        widget: list
+        required: false
+        fields:
+          - label: Image
+            name: image
+            widget: image
+          - label: Alt text
+            name: alt
+          - label: Caption
+            name: caption
+            required: false
+      - label: Hero Videos
+        name: heroVideos
+        widget: list
+        required: false
+        default: false
+      - label: Hero Video Autoplay
+        name: heroVideoAutoPlay
+        widget: boolean
+      - name: contentUrl
+        label: Content URL
+        required: false
+      - name: archive
+        label: Archive
+        default: false
+        widget: boolean
+      - name: hide
+        label: Hide
+        default: false
+        widget: boolean
+      - name: category
+        label: Category
+        default: 'work'
+        widget: hidden
+  - name: work
+    label: Work
+    folder: backend/work
+    create: true
+    fields:
+      - { name: date, label: Date, widget: date }
+      - { name: title, label: Title }
+      - { name: description, label: Description, widget: markdown }
+      - { name: body, label: Body, widget: markdown }
+      - name: heroImages
+        label: Hero Images
+        widget: list
+        required: false
+        fields:
+          - label: Image
+            name: image
+            widget: image
+          - label: Alt text
+            name: alt
+          - label: Caption
+            name: caption
+            required: false
+      - label: Hero Videos
+        name: heroVideos
+        widget: list
+        required: false
+        default: false
+      - label: Hero Video Autoplay
+        name: heroVideoAutoPlay
+        widget: boolean
+      - name: contentUrl
+        label: Content URL
+        required: false
+      - name: archive
+        label: Archive
+        default: false
+        widget: boolean
+      - name: hide
+        label: Hide
+        default: false
+        widget: boolean
+      - name: category
+        label: Category
+        default: 'work'
+        widget: hidden

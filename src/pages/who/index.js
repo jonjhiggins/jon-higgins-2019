@@ -13,7 +13,7 @@ export default function Section({ data }) {
 
 export const pageQuery = graphql`
   query GetWhoPost {
-    markdownRemark(fileAbsolutePath: { regex: "/src/data/who/who.md/" }) {
+    markdownRemark(fileAbsolutePath: { regex: "/backend/who/who.md/" }) {
       html
       frontmatter {
         title
